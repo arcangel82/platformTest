@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>SortingCriteriaType.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pruebaITXComercial</a> &gt; <a href="index.source.html" class="el_package">com.pruebaItx.domain.model</a> &gt; <span class="el_source">SortingCriteriaType.java</span></div><h1>SortingCriteriaType.java</h1><pre class="source lang-java linenums">package com.pruebaItx.domain.model;
+
+/**
+ * Enum defining the types of sorting criteria available for product sorting. This enum allows for
+ * easy extension with additional criteria types in the future.
+ */
+<span class="fc" id="L7">public enum SortingCriteriaType {</span>
+<span class="fc" id="L8">  SALE_FACTOR(&quot;salesUnits&quot;, &quot;Sales Units&quot;, &quot;Scores products based on number of units sold&quot;),</span>
+<span class="fc" id="L9">  STOCK_FACTOR(&quot;stockRatio&quot;, &quot;Stock Ratio&quot;, &quot;Scores products based on available sizes with stock.&quot;);</span>
+
+  private final String id;
+  private final String name;
+  private final String description;
+
+<span class="fc" id="L15">  SortingCriteriaType(String id, String name, String description) {</span>
+<span class="fc" id="L16">    this.id = id;</span>
+<span class="fc" id="L17">    this.name = name;</span>
+<span class="fc" id="L18">    this.description = description;</span>
+<span class="fc" id="L19">  }</span>
+
+  public String getId() {
+<span class="fc" id="L22">    return id;</span>
+  }
+
+  public String getName() {
+<span class="nc" id="L26">    return name;</span>
+  }
+
+  public String getDescription() {
+<span class="nc" id="L30">    return description;</span>
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>

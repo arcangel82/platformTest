@@ -1,0 +1,15 @@
+com/pruebaItx/infrastructure/adapter/in/web/ProductControllerTest.class
+com/pruebaItx/domain/service/ProductSortingServiceTest.class
+com/pruebaItx/ControllerTests.class
+com/pruebaItx/web/application/entities/ProductsSorted200ResponseTest.class
+com/pruebaItx/web/application/entities/ArticleStockTest.class
+com/pruebaItx/infrastructure/adapter/in/web/mapper/ProductWebMapperTest.class
+com/pruebaItx/application/service/ProductServiceTest.class
+com/pruebaItx/infrastructure/adapter/in/web/ProductControllerIntegrationTest.class
+com/pruebaItx/ServiceTests.class
+com/pruebaItx/domain/model/ProductTest.class
+com/pruebaItx/PruebaItxApplicationTests.class
+com/pruebaItx/web/application/entities/ArticleTest.class
+com/pruebaItx/SwaggerConfigTest.class
+com/pruebaItx/infrastructure/adapter/out/persistence/ProductPersistenceAdapterTest.class
+com/pruebaItx/infrastructure/adapter/out/persistence/mapper/ProductPersistenceMapperTest.class

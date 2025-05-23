@@ -1,0 +1,13 @@
+.openapi-generator-ignore
+README.md
+pom.xml
+src/main/java/com/pruebaItx/web/application/entities/Article.java
+src/main/java/com/pruebaItx/web/application/entities/ArticleStock.java
+src/main/java/com/pruebaItx/web/application/entities/CriteriaWeight.java
+src/main/java/com/pruebaItx/web/application/entities/Criterion.java
+src/main/java/com/pruebaItx/web/application/entities/ErrorResource.java
+src/main/java/com/pruebaItx/web/application/entities/GetAvailableCriteria200Response.java
+src/main/java/com/pruebaItx/web/application/entities/ProductsSorted200Response.java
+src/main/java/com/pruebaItx/web/application/entities/SortingCriteriaRequest.java
+src/main/java/com/pruebaItx/web/application/interfaces/ApiUtil.java
+src/main/java/com/pruebaItx/web/application/interfaces/ProductApi.java

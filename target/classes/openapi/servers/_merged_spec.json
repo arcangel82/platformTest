@@ -1,0 +1,1 @@
+{"servers":[{"url":"http://localhost:8080"}],"openapi":"3.0.3","paths":{"/product":{"$ref":"./api-product-openapi.json#/paths/~1product"},"/product/criteria":{"$ref":"./api-product-openapi.json#/paths/~1product~1criteria"}},"info":{"title":"merged spec","description":"merged spec","version":"1.0.0"}}

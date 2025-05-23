@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Article.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pruebaITXComercial</a> &gt; <a href="index.source.html" class="el_package">com.pruebaItx.web.application.entities</a> &gt; <span class="el_source">Article.java</span></div><h1>Article.java</h1><pre class="source lang-java linenums">package com.pruebaItx.web.application.entities;
+
+import java.net.URI;
+import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.pruebaItx.web.application.entities.ArticleStock;
+import org.springframework.lang.Nullable;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
+
+/**
+ * Article
+ */
+
+@Schema(name = &quot;Article&quot;, description = &quot;Article&quot;)
+@Generated(value = &quot;org.openapitools.codegen.languages.SpringCodegen&quot;, comments = &quot;Generator version: 7.13.0&quot;)
+<span class="fc" id="L25">public class Article {</span>
+
+  private @Nullable Integer id;
+
+  private @Nullable String name;
+
+  private @Nullable Integer sales;
+
+  private @Nullable ArticleStock stock;
+
+  public Article id(Integer id) {
+<span class="nc" id="L36">    this.id = id;</span>
+<span class="nc" id="L37">    return this;</span>
+  }
+
+  /**
+   * Article identifier
+   * maximum: 99999
+   * @return id
+   */
+  @Max(99999) 
+  @Schema(name = &quot;id&quot;, example = &quot;12345&quot;, description = &quot;Article identifier&quot;, requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty(&quot;id&quot;)
+  public Integer getId() {
+<span class="fc" id="L49">    return id;</span>
+  }
+
+  public void setId(Integer id) {
+<span class="fc" id="L53">    this.id = id;</span>
+<span class="fc" id="L54">  }</span>
+
+  public Article name(String name) {
+<span class="nc" id="L57">    this.name = name;</span>
+<span class="nc" id="L58">    return this;</span>
+  }
+
+  /**
+   * Article name
+   * @return name
+   */
+  @Pattern(regexp = &quot;^[0-9a-zA-Z]+$&quot;) @Size(max = 30) 
+  @Schema(name = &quot;name&quot;, example = &quot;Long slouchy pants&quot;, description = &quot;Article name&quot;, requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty(&quot;name&quot;)
+  public String getName() {
+<span class="fc" id="L69">    return name;</span>
+  }
+
+  public void setName(String name) {
+<span class="fc" id="L73">    this.name = name;</span>
+<span class="fc" id="L74">  }</span>
+
+  public Article sales(Integer sales) {
+<span class="nc" id="L77">    this.sales = sales;</span>
+<span class="nc" id="L78">    return this;</span>
+  }
+
+  /**
+   * Get sales
+   * maximum: 999
+   * @return sales
+   */
+  @Max(999) 
+  @Schema(name = &quot;sales&quot;, example = &quot;888&quot;, requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty(&quot;sales&quot;)
+  public Integer getSales() {
+<span class="fc" id="L90">    return sales;</span>
+  }
+
+  public void setSales(Integer sales) {
+<span class="fc" id="L94">    this.sales = sales;</span>
+<span class="fc" id="L95">  }</span>
+
+  public Article stock(ArticleStock stock) {
+<span class="nc" id="L98">    this.stock = stock;</span>
+<span class="nc" id="L99">    return this;</span>
+  }
+
+  /**
+   * Get stock
+   * @return stock
+   */
+  @Valid 
+  @Schema(name = &quot;stock&quot;, requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty(&quot;stock&quot;)
+  public ArticleStock getStock() {
+<span class="fc" id="L110">    return stock;</span>
+  }
+
+  public void setStock(ArticleStock stock) {
+<span class="fc" id="L114">    this.stock = stock;</span>
+<span class="fc" id="L115">  }</span>
+
+  @Override
+  public boolean equals(Object o) {
+<span class="fc bfc" id="L119" title="All 2 branches covered.">    if (this == o) {</span>
+<span class="fc" id="L120">      return true;</span>
+    }
+<span class="pc bpc" id="L122" title="2 of 4 branches missed.">    if (o == null || getClass() != o.getClass()) {</span>
+<span class="nc" id="L123">      return false;</span>
+    }
+<span class="fc" id="L125">    Article article = (Article) o;</span>
+<span class="pc bpc" id="L126" title="1 of 2 branches missed.">    return Objects.equals(this.id, article.id) &amp;&amp;</span>
+<span class="pc bpc" id="L127" title="1 of 2 branches missed.">        Objects.equals(this.name, article.name) &amp;&amp;</span>
+<span class="pc bpc" id="L128" title="1 of 2 branches missed.">        Objects.equals(this.sales, article.sales) &amp;&amp;</span>
+<span class="pc bpc" id="L129" title="1 of 2 branches missed.">        Objects.equals(this.stock, article.stock);</span>
+  }
+
+  @Override
+  public int hashCode() {
+<span class="fc" id="L134">    return Objects.hash(id, name, sales, stock);</span>
+  }
+
+  @Override
+  public String toString() {
+<span class="fc" id="L139">    StringBuilder sb = new StringBuilder();</span>
+<span class="fc" id="L140">    sb.append(&quot;class Article {\n&quot;);</span>
+<span class="fc" id="L141">    sb.append(&quot;    id: &quot;).append(toIndentedString(id)).append(&quot;\n&quot;);</span>
+<span class="fc" id="L142">    sb.append(&quot;    name: &quot;).append(toIndentedString(name)).append(&quot;\n&quot;);</span>
+<span class="fc" id="L143">    sb.append(&quot;    sales: &quot;).append(toIndentedString(sales)).append(&quot;\n&quot;);</span>
+<span class="fc" id="L144">    sb.append(&quot;    stock: &quot;).append(toIndentedString(stock)).append(&quot;\n&quot;);</span>
+<span class="fc" id="L145">    sb.append(&quot;}&quot;);</span>
+<span class="fc" id="L146">    return sb.toString();</span>
+  }
+
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(Object o) {
+<span class="pc bpc" id="L154" title="1 of 2 branches missed.">    if (o == null) {</span>
+<span class="nc" id="L155">      return &quot;null&quot;;</span>
+    }
+<span class="fc" id="L157">    return o.toString().replace(&quot;\n&quot;, &quot;\n    &quot;);</span>
+  }
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>

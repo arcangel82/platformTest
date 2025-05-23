@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ProductService.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pruebaITXComercial</a> &gt; <a href="index.source.html" class="el_package">com.pruebaItx.application.service</a> &gt; <span class="el_source">ProductService.java</span></div><h1>ProductService.java</h1><pre class="source lang-java linenums">package com.pruebaItx.application.service;
+
+import com.pruebaItx.application.port.in.RetrieveSortedProductsUseCase;
+import com.pruebaItx.application.port.out.LoadProductsPort;
+import com.pruebaItx.domain.model.Product;
+import com.pruebaItx.domain.model.SortingCriteriaType;
+import com.pruebaItx.domain.service.ProductSortingService;
+import java.util.List;
+import java.util.Map;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+/**
+ * Application service that implements the RetrieveSortedProductsUseCase. Orchestrates the flow of
+ * data between the domain and the infrastructure layers.
+ */
+@Service
+@RequiredArgsConstructor
+<span class="fc" id="L21">@Slf4j</span>
+public class ProductService implements RetrieveSortedProductsUseCase {
+
+  private final LoadProductsPort loadProductsPort;
+  private final ProductSortingService productSortingService;
+
+  /** {@inheritDoc} */
+  @Override
+  @Transactional(readOnly = true)
+  public List&lt;Product&gt; retrieveSortedProducts(Integer saleFactor, Integer stockFactor) {
+<span class="fc" id="L31">    log.info(</span>
+        &quot;Requested the products, factors: saleFactor: {} stockFactor: {}&quot;, saleFactor, stockFactor);
+
+    // Load all products from the repository
+<span class="fc" id="L35">    List&lt;Product&gt; products = loadProductsPort.loadAllProducts();</span>
+
+    // Sort products using the domain service
+<span class="fc" id="L38">    return productSortingService.sortProducts(products, saleFactor, stockFactor);</span>
+  }
+
+  /** {@inheritDoc} */
+  @Override
+  @Transactional(readOnly = true)
+  public List&lt;Product&gt; retrieveSortedProducts(Map&lt;SortingCriteriaType, Integer&gt; criteriaWeights) {
+<span class="nc" id="L45">    log.info(&quot;Requested the products with criteria weights: {}&quot;, criteriaWeights);</span>
+
+    // Load all products from the repository
+<span class="nc" id="L48">    List&lt;Product&gt; products = loadProductsPort.loadAllProducts();</span>
+
+    // Sort products using the domain service
+<span class="nc" id="L51">    return productSortingService.sortProducts(products, criteriaWeights);</span>
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>

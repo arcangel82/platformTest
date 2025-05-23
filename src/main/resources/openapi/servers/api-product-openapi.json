@@ -1,0 +1,418 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "API ITX Comercial",
+    "description": "API Inditex. Comercial.",
+    "contact": {
+      "name": "API Support",
+      "url": "http://example.com/support",
+      "email": "support@example.com"
+    },
+    "version": "1.2.1"
+  },
+  "servers": [
+    {
+      "url": "http://{environment}/",
+      "description": "A URL to the target host",
+      "variables": {
+        "environment": {
+          "default": "localhost:8081",
+          "description": "local"
+        }
+      }
+    }
+  ],
+  "tags": [
+    {
+      "name": "Product"
+    }
+  ],
+  "paths": {
+    "/product": {
+      "get": {
+        "tags": [
+          "Product"
+        ],
+        "summary": "Products Sorted (using headers).",
+        "operationId": "productsSorted",
+        "parameters": [
+          {
+            "name": "saleFactor",
+            "in": "header",
+            "required": true,
+            "description": "Factor to ponderate sales Units",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "maximum": 99999,
+              "example": 12345
+            }
+          },
+          {
+            "name": "stockFactor",
+            "in": "header",
+            "required": true,
+            "description": "Factor to ponderate stock Units",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "maximum": 99999,
+              "example": 12345
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "headers": {
+              "Content-Language": {
+                "$ref": "#/components/headers/Content-Language"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Article"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequestResponse"
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedResponse"
+          },
+          "403": {
+            "$ref": "#/components/responses/ForbiddenResponse"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFoundResponse"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerErrorResponse"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Product"
+        ],
+        "summary": "Products Sorted (using request body).",
+        "operationId": "productsSortedWithBody",
+        "requestBody": {
+          "description": "Sorting criteria with weights",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SortingCriteriaRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "headers": {
+              "Content-Language": {
+                "$ref": "#/components/headers/Content-Language"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Article"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequestResponse"
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedResponse"
+          },
+          "403": {
+            "$ref": "#/components/responses/ForbiddenResponse"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFoundResponse"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerErrorResponse"
+          }
+        }
+      }
+    },
+    "/product/criteria": {
+      "get": {
+        "tags": [
+          "Product"
+        ],
+        "summary": "Available Sorting Criteria.",
+        "operationId": "getAvailableCriteria",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "headers": {
+              "Content-Language": {
+                "$ref": "#/components/headers/Content-Language"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Criterion"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequestResponse"
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedResponse"
+          },
+          "403": {
+            "$ref": "#/components/responses/ForbiddenResponse"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFoundResponse"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerErrorResponse"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "headers": {
+      "Content-Language": {
+        "description": "Predefined language for the response.",
+        "schema": {
+          "type": "string",
+          "example": "es_ES"
+        }
+      }
+    },
+    "parameters": {
+    },
+    "responses": {
+      "BadRequestResponse": {
+        "description": "Bad request.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ErrorResource"
+            }
+          }
+        }
+      },
+      "UnauthorizedResponse": {
+        "description": "Unauthorized.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ErrorResource"
+            }
+          }
+        }
+      },
+      "ForbiddenResponse": {
+        "description": "Forbidden.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ErrorResource"
+            }
+          }
+        }
+      },
+      "NotFoundResponse": {
+        "description": "Not Found.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ErrorResource"
+            }
+          }
+        }
+      },
+      "InternalServerErrorResponse": {
+        "description": "Internal Server Error.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ErrorResource"
+            }
+          }
+        }
+      }
+    },
+    "schemas": {
+      "CriteriaWeight": {
+        "description": "Sorting Criterion with Weight",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "salesUnits",
+            "description": "Criterion identifier"
+          },
+          "weight": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Weight for this criterion",
+            "example": 12345
+          }
+        },
+        "required": [
+          "id",
+          "weight"
+        ]
+      },
+      "SortingCriteriaRequest": {
+        "description": "Request with sorting criteria",
+        "type": "object",
+        "properties": {
+          "criteria": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CriteriaWeight"
+            }
+          }
+        },
+        "required": [
+          "criteria"
+        ]
+      },
+      "Criterion": {
+        "description": "Sorting Criterion",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "salesUnits",
+            "description": "Criterion identifier"
+          },
+          "name": {
+            "type": "string",
+            "example": "Sales Units",
+            "description": "Criterion name"
+          },
+          "description": {
+            "type": "string",
+            "example": "Scores products based on number of units sold",
+            "description": "Criterion description"
+          }
+        }
+      },
+      "Article": {
+        "description": "Article",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "example": 12345,
+            "format": "int32",
+            "maximum": 99999,
+            "description": "Article identifier"
+          },
+          "name": {
+            "type": "string",
+            "example": "Long slouchy pants",
+            "pattern": "^[0-9a-zA-Z]+$",
+            "maxLength": 30,
+            "description": "Article name"
+          },
+          "sales": {
+            "type": "integer",
+            "maximum": 999,
+            "example": 888
+          },
+          "stock": {
+            "type": "object",
+            "properties": {
+              "sizeS": {
+                "type": "integer",
+                "maximum": 999,
+                "example": 888
+              },
+              "sizeM": {
+                "type": "integer",
+                "maximum": 999,
+                "example": 888
+              },
+              "sizeL": {
+                "type": "integer",
+                "maximum": 999,
+                "example": 888
+              }
+            }
+          }
+        }
+      },
+      "ErrorResource": {
+        "title": "ErrorResource",
+        "type": "object",
+        "description": "Used when an API throws an Error, typically with a HTTP error response-code (3xx, 4xx, 5xx)",
+        "additionalProperties": false,
+        "properties": {
+          "errorType": {
+            "type": "string",
+            "description": "Describes different error severity levels, INFO, WARNING, ERROR, FATAL",
+            "example": "ERROR",
+            "pattern": "^[0-9a-zA-Z]+$",
+            "maxLength": 32
+          },
+          "errorCode": {
+            "type": "integer",
+            "description": "donde nnnnn es un numero de error. >= 1000 y < 90000",
+            "format": "int32",
+            "minimum": 1,
+            "maximum": 99999
+          },
+          "errorCodeMsg": {
+            "type": "string",
+            "description": "Internal error description",
+            "pattern": "^[0-9a-zA-Z]+$",
+            "maxLength": 500
+          },
+          "errorMessage": {
+            "type": "string",
+            "description": "More details and corrective actions related to the error which can be shown to a client user.",
+            "example": "The parameters entered are not valid",
+            "maxLength": 500,
+            "pattern": "^[0-9a-zA-Z]+$"
+          }
+        }
+      }
+    }
+  }
+}

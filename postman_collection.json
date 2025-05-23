@@ -1,0 +1,345 @@
+{
+  "info": {
+    "_postman_id": "b5b5b5b5-b5b5-b5b5-b5b5-b5b5b5b5b5b5",
+    "name": "ITX Logistica API",
+    "description": "Collection for testing the ITX Logistica API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "GET Endpoints",
+      "item": [
+        {
+          "name": "Get Products Sorted (Sales Factor Only)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "saleFactor",
+                "value": "1",
+                "type": "text"
+              },
+              {
+                "key": "stockFactor",
+                "value": "0",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:8081/product",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8081",
+              "path": [
+                "product"
+              ]
+            },
+            "description": "Get products sorted by sales factor only"
+          },
+          "response": []
+        },
+        {
+          "name": "Get Products Sorted (Stock Factor Only)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "saleFactor",
+                "value": "0",
+                "type": "text"
+              },
+              {
+                "key": "stockFactor",
+                "value": "1",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:8081/product",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8081",
+              "path": [
+                "product"
+              ]
+            },
+            "description": "Get products sorted by stock factor only"
+          },
+          "response": []
+        },
+        {
+          "name": "Get Products Sorted (Equal Weights)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "saleFactor",
+                "value": "1",
+                "type": "text"
+              },
+              {
+                "key": "stockFactor",
+                "value": "1",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:8081/product",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8081",
+              "path": [
+                "product"
+              ]
+            },
+            "description": "Get products sorted with equal weights for sales and stock factors"
+          },
+          "response": []
+        },
+        {
+          "name": "Get Products Sorted (Custom Weights)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "saleFactor",
+                "value": "2",
+                "type": "text"
+              },
+              {
+                "key": "stockFactor",
+                "value": "3",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:8081/product",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8081",
+              "path": [
+                "product"
+              ]
+            },
+            "description": "Get products sorted with custom weights for sales and stock factors"
+          },
+          "response": []
+        },
+        {
+          "name": "Get Available Sorting Criteria",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8081/product/criteria",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8081",
+              "path": [
+                "product",
+                "criteria"
+              ]
+            },
+            "description": "Get the list of available sorting criteria"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "POST Endpoints",
+      "item": [
+        {
+          "name": "Post Products Sorted (Sales Factor Only)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"criteria\": [\n    {\n      \"id\": \"salesUnits\",\n      \"weight\": 1\n    }\n  ]\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8081/product",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8081",
+              "path": [
+                "product"
+              ]
+            },
+            "description": "Get products sorted by sales factor only using POST endpoint"
+          },
+          "response": []
+        },
+        {
+          "name": "Post Products Sorted (Stock Factor Only)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"criteria\": [\n    {\n      \"id\": \"stockRatio\",\n      \"weight\": 1\n    }\n  ]\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8081/product",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8081",
+              "path": [
+                "product"
+              ]
+            },
+            "description": "Get products sorted by stock factor only using POST endpoint"
+          },
+          "response": []
+        },
+        {
+          "name": "Post Products Sorted (Equal Weights)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"criteria\": [\n    {\n      \"id\": \"salesUnits\",\n      \"weight\": 1\n    },\n    {\n      \"id\": \"stockRatio\",\n      \"weight\": 1\n    }\n  ]\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8081/product",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8081",
+              "path": [
+                "product"
+              ]
+            },
+            "description": "Get products sorted with equal weights for sales and stock factors using POST endpoint"
+          },
+          "response": []
+        },
+        {
+          "name": "Post Products Sorted (Custom Weights)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"criteria\": [\n    {\n      \"id\": \"salesUnits\",\n      \"weight\": 2\n    },\n    {\n      \"id\": \"stockRatio\",\n      \"weight\": 3\n    }\n  ]\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8081/product",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8081",
+              "path": [
+                "product"
+              ]
+            },
+            "description": "Get products sorted with custom weights for sales and stock factors using POST endpoint"
+          },
+          "response": []
+        },
+        {
+          "name": "Post Products Sorted (Empty Criteria)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"criteria\": []\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8081/product",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8081",
+              "path": [
+                "product"
+              ]
+            },
+            "description": "Get products with empty criteria using POST endpoint"
+          },
+          "response": []
+        },
+        {
+          "name": "Post Products Sorted (Invalid Criterion ID)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"criteria\": [\n    {\n      \"id\": \"invalidCriterion\",\n      \"weight\": 1\n    }\n  ]\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8081/product",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8081",
+              "path": [
+                "product"
+              ]
+            },
+            "description": "Get products with invalid criterion ID using POST endpoint"
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}
