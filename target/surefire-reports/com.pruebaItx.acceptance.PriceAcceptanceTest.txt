@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: com.pruebaItx.acceptance.PriceAcceptanceTest
 -------------------------------------------------------------------------------
-Tests run: 15, Failures: 13, Errors: 0, Skipped: 0, Time elapsed: 1.553 s <<< FAILURE! -- in com.pruebaItx.acceptance.PriceAcceptanceTest
-com.pruebaItx.acceptance.PriceAcceptanceTest.shouldReturn400WhenApplicationDateFormatIsInvalid -- Time elapsed: 0.012 s <<< FAILURE!
+Tests run: 15, Failures: 13, Errors: 0, Skipped: 0, Time elapsed: 1.601 s <<< FAILURE! -- in com.pruebaItx.acceptance.PriceAcceptanceTest
+com.pruebaItx.acceptance.PriceAcceptanceTest.shouldReturn400WhenApplicationDateFormatIsInvalid -- Time elapsed: 0.011 s <<< FAILURE!
 java.lang.AssertionError: Content type not set
 	at org.springframework.test.util.AssertionErrors.fail(AssertionErrors.java:39)
 	at org.springframework.test.util.AssertionErrors.assertTrue(AssertionErrors.java:73)
@@ -14,7 +14,7 @@ java.lang.AssertionError: Content type not set
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 
-com.pruebaItx.acceptance.PriceAcceptanceTest.shouldReturn400WhenApplicationDateIsMissing -- Time elapsed: 0.007 s <<< FAILURE!
+com.pruebaItx.acceptance.PriceAcceptanceTest.shouldReturn400WhenApplicationDateIsMissing -- Time elapsed: 0.010 s <<< FAILURE!
 java.lang.AssertionError: Content type not set
 	at org.springframework.test.util.AssertionErrors.fail(AssertionErrors.java:39)
 	at org.springframework.test.util.AssertionErrors.assertTrue(AssertionErrors.java:73)
@@ -26,7 +26,7 @@ java.lang.AssertionError: Content type not set
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 
-com.pruebaItx.acceptance.PriceAcceptanceTest.shouldReturn400WhenBrandIdIsNotValidNumber -- Time elapsed: 0.008 s <<< FAILURE!
+com.pruebaItx.acceptance.PriceAcceptanceTest.shouldReturn400WhenBrandIdIsNotValidNumber -- Time elapsed: 0.010 s <<< FAILURE!
 java.lang.AssertionError: Content type not set
 	at org.springframework.test.util.AssertionErrors.fail(AssertionErrors.java:39)
 	at org.springframework.test.util.AssertionErrors.assertTrue(AssertionErrors.java:73)
@@ -38,7 +38,7 @@ java.lang.AssertionError: Content type not set
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 
-com.pruebaItx.acceptance.PriceAcceptanceTest.shouldReturn400WhenBrandIdIsMissing -- Time elapsed: 0.007 s <<< FAILURE!
+com.pruebaItx.acceptance.PriceAcceptanceTest.shouldReturn400WhenBrandIdIsMissing -- Time elapsed: 0.009 s <<< FAILURE!
 java.lang.AssertionError: Content type not set
 	at org.springframework.test.util.AssertionErrors.fail(AssertionErrors.java:39)
 	at org.springframework.test.util.AssertionErrors.assertTrue(AssertionErrors.java:73)
@@ -50,7 +50,7 @@ java.lang.AssertionError: Content type not set
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 
-com.pruebaItx.acceptance.PriceAcceptanceTest.shouldReturn400WhenProductIdIsNotValidNumber -- Time elapsed: 0.007 s <<< FAILURE!
+com.pruebaItx.acceptance.PriceAcceptanceTest.shouldReturn400WhenProductIdIsNotValidNumber -- Time elapsed: 0.010 s <<< FAILURE!
 java.lang.AssertionError: Content type not set
 	at org.springframework.test.util.AssertionErrors.fail(AssertionErrors.java:39)
 	at org.springframework.test.util.AssertionErrors.assertTrue(AssertionErrors.java:73)
@@ -62,7 +62,7 @@ java.lang.AssertionError: Content type not set
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 
-com.pruebaItx.acceptance.PriceAcceptanceTest.shouldReturn400WhenProductIdIsMissing -- Time elapsed: 0.006 s <<< FAILURE!
+com.pruebaItx.acceptance.PriceAcceptanceTest.shouldReturn400WhenProductIdIsMissing -- Time elapsed: 0.009 s <<< FAILURE!
 java.lang.AssertionError: Content type not set
 	at org.springframework.test.util.AssertionErrors.fail(AssertionErrors.java:39)
 	at org.springframework.test.util.AssertionErrors.assertTrue(AssertionErrors.java:73)
@@ -74,7 +74,7 @@ java.lang.AssertionError: Content type not set
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 
-com.pruebaItx.acceptance.PriceAcceptanceTest.shouldReturn404WhenNoPriceFound -- Time elapsed: 0.010 s <<< FAILURE!
+com.pruebaItx.acceptance.PriceAcceptanceTest.shouldReturn404WhenNoPriceFound -- Time elapsed: 0.013 s <<< FAILURE!
 java.lang.AssertionError: Content type not set
 	at org.springframework.test.util.AssertionErrors.fail(AssertionErrors.java:39)
 	at org.springframework.test.util.AssertionErrors.assertTrue(AssertionErrors.java:73)
@@ -86,7 +86,7 @@ java.lang.AssertionError: Content type not set
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 
-com.pruebaItx.acceptance.PriceAcceptanceTest.shouldReturn404WhenProductExistsButNoPriceForDate -- Time elapsed: 0.010 s <<< FAILURE!
+com.pruebaItx.acceptance.PriceAcceptanceTest.shouldReturn404WhenProductExistsButNoPriceForDate -- Time elapsed: 0.012 s <<< FAILURE!
 java.lang.AssertionError: Content type not set
 	at org.springframework.test.util.AssertionErrors.fail(AssertionErrors.java:39)
 	at org.springframework.test.util.AssertionErrors.assertTrue(AssertionErrors.java:73)
@@ -98,7 +98,7 @@ java.lang.AssertionError: Content type not set
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 
-com.pruebaItx.acceptance.PriceAcceptanceTest.shouldReturnPriceAt10AMOnDay14 -- Time elapsed: 0.015 s <<< FAILURE!
+com.pruebaItx.acceptance.PriceAcceptanceTest.shouldReturnPriceAt10AMOnDay14 -- Time elapsed: 0.014 s <<< FAILURE!
 java.lang.AssertionError: Got a list of values [2020,6,14,0,0] instead of the expected single value 2020-06-14T00:00:00
 	at org.springframework.test.util.AssertionErrors.fail(AssertionErrors.java:39)
 	at org.springframework.test.util.JsonPathExpectationsHelper.assertValue(JsonPathExpectationsHelper.java:154)
@@ -109,7 +109,7 @@ java.lang.AssertionError: Got a list of values [2020,6,14,0,0] instead of the ex
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 
-com.pruebaItx.acceptance.PriceAcceptanceTest.shouldReturnPriceAt4PMOnDay14 -- Time elapsed: 0.013 s <<< FAILURE!
+com.pruebaItx.acceptance.PriceAcceptanceTest.shouldReturnPriceAt4PMOnDay14 -- Time elapsed: 0.010 s <<< FAILURE!
 java.lang.AssertionError: Got a list of values [2020,6,14,15,0] instead of the expected single value 2020-06-14T15:00:00
 	at org.springframework.test.util.AssertionErrors.fail(AssertionErrors.java:39)
 	at org.springframework.test.util.JsonPathExpectationsHelper.assertValue(JsonPathExpectationsHelper.java:154)
@@ -120,7 +120,7 @@ java.lang.AssertionError: Got a list of values [2020,6,14,15,0] instead of the e
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 
-com.pruebaItx.acceptance.PriceAcceptanceTest.shouldReturnPriceAt9PMOnDay14 -- Time elapsed: 0.015 s <<< FAILURE!
+com.pruebaItx.acceptance.PriceAcceptanceTest.shouldReturnPriceAt9PMOnDay14 -- Time elapsed: 0.013 s <<< FAILURE!
 java.lang.AssertionError: Got a list of values [2020,6,14,0,0] instead of the expected single value 2020-06-14T00:00:00
 	at org.springframework.test.util.AssertionErrors.fail(AssertionErrors.java:39)
 	at org.springframework.test.util.JsonPathExpectationsHelper.assertValue(JsonPathExpectationsHelper.java:154)

@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.pruebaItx.unit.adapter.out.persistence.PricePersistenceAdapterTest
 -------------------------------------------------------------------------------
-Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.577 s -- in com.pruebaItx.unit.adapter.out.persistence.PricePersistenceAdapterTest
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.973 s -- in com.pruebaItx.unit.adapter.out.persistence.PricePersistenceAdapterTest

@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2025-05-26T16:11:27+0200",
+    date = "2025-05-26T17:28:01+0200",
     comments = "version: 1.6.3, compiler: javac, environment: Java 17.0.15 (Amazon.com Inc.)"
 )
 @Component
@@ -29,6 +29,7 @@ public class PriceWebMapperImpl implements PriceWebMapper {
         if ( price.getPrice() != null ) {
             priceResponse.setPrice( price.getPrice().doubleValue() );
         }
+        priceResponse.setCurrency( price.getCurrency() );
 
         return priceResponse;
     }

@@ -91,7 +91,7 @@ public interface PriceApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"productId\" : 35455, \"endDate\" : \"2000-01-23T04:56:07.000+00:00\", \"price\" : 35.5, \"brandId\" : 1, \"startDate\" : \"2000-01-23T04:56:07.000+00:00\", \"priceList\" : 1 }";
+                    String exampleString = "{ \"productId\" : 35455, \"endDate\" : \"2000-01-23T04:56:07.000+00:00\", \"price\" : 35.5, \"brandId\" : 1, \"currency\" : \"EUR\", \"startDate\" : \"2000-01-23T04:56:07.000+00:00\", \"priceList\" : 1 }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }

@@ -114,6 +114,10 @@ components:
           format: double
           description: Final price to apply
           example: 35.50
+        currency:
+          type: string
+          description: Currency
+          example: "EUR"
 
     ErrorResponse:
       type: object

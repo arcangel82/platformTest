@@ -41,8 +41,6 @@ spring:
   jackson:
     serialization:
       write-dates-as-timestamps: false
-    deserialization:
-      fail-on-unknown-properties: false
     date-format: yyyy-MM-dd'T'HH:mm:ss
     time-zone: UTC
 
@@ -139,6 +137,9 @@ app:
 ---
 # Test Profile
 spring:
+  jackson:
+    serialization:
+      write-dates-as-timestamps: false
   config:
     activate:
       on-profile: test
@@ -164,6 +165,9 @@ logging:
 ---
 # Development Profile
 spring:
+  jackson:
+    serialization:
+      write-dates-as-timestamps: false
   config:
     activate:
       on-profile: dev
@@ -182,6 +186,9 @@ logging:
 ---
 # Production Profile  
 spring:
+  jackson:
+    serialization:
+      write-dates-as-timestamps: false
   config:
     activate:
       on-profile: prod

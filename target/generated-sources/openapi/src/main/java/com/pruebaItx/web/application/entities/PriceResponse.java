@@ -38,6 +38,8 @@ public class PriceResponse {
 
   private Double price;
 
+  private @Nullable String currency;
+
   public PriceResponse() {
     super();
   }
@@ -174,6 +176,26 @@ public class PriceResponse {
     this.price = price;
   }
 
+  public PriceResponse currency(String currency) {
+    this.currency = currency;
+    return this;
+  }
+
+  /**
+   * Currency
+   * @return currency
+   */
+  
+  @Schema(name = "currency", example = "EUR", description = "Currency", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("currency")
+  public String getCurrency() {
+    return currency;
+  }
+
+  public void setCurrency(String currency) {
+    this.currency = currency;
+  }
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -188,12 +210,13 @@ public class PriceResponse {
         Objects.equals(this.priceList, priceResponse.priceList) &&
         Objects.equals(this.startDate, priceResponse.startDate) &&
         Objects.equals(this.endDate, priceResponse.endDate) &&
-        Objects.equals(this.price, priceResponse.price);
+        Objects.equals(this.price, priceResponse.price) &&
+        Objects.equals(this.currency, priceResponse.currency);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(productId, brandId, priceList, startDate, endDate, price);
+    return Objects.hash(productId, brandId, priceList, startDate, endDate, price, currency);
   }
 
   @Override
@@ -206,6 +229,7 @@ public class PriceResponse {
     sb.append("    startDate: ").append(toIndentedString(startDate)).append("\n");
     sb.append("    endDate: ").append(toIndentedString(endDate)).append("\n");
     sb.append("    price: ").append(toIndentedString(price)).append("\n");
+    sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
     sb.append("}");
     return sb.toString();
   }

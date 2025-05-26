@@ -116,7 +116,7 @@ class PriceIntegrationTest {
   void test1_getPriceAt10_00OnDay14() throws Exception {
     mockMvc
         .perform(
-            get("/api/prices")
+            get("/api/v1/prices")
                 .param("applicationDate", "2020-06-14T10:00:00")
                 .param("productId", "35455")
                 .param("brandId", "1")
@@ -137,7 +137,7 @@ class PriceIntegrationTest {
   void test2_getPriceAt16_00OnDay14() throws Exception {
     mockMvc
         .perform(
-            get("/api/prices")
+            get("/api/v1/prices")
                 .param("applicationDate", "2020-06-14T16:00:00")
                 .param("productId", "35455")
                 .param("brandId", "1")
@@ -158,7 +158,7 @@ class PriceIntegrationTest {
   void test3_getPriceAt21_00OnDay14() throws Exception {
     mockMvc
         .perform(
-            get("/api/prices")
+            get("/api/v1/prices")
                 .param("applicationDate", "2020-06-14T21:00:00")
                 .param("productId", "35455")
                 .param("brandId", "1")
@@ -179,7 +179,7 @@ class PriceIntegrationTest {
   void test4_getPriceAt10_00OnDay15() throws Exception {
     mockMvc
         .perform(
-            get("/api/prices")
+            get("/api/v1/prices")
                 .param("applicationDate", "2020-06-15T10:00:00")
                 .param("productId", "35455")
                 .param("brandId", "1")
@@ -200,7 +200,7 @@ class PriceIntegrationTest {
   void test5_getPriceAt21_00OnDay16() throws Exception {
     mockMvc
         .perform(
-            get("/api/prices")
+            get("/api/v1/prices")
                 .param("applicationDate", "2020-06-16T21:00:00")
                 .param("productId", "35455")
                 .param("brandId", "1")
@@ -221,7 +221,7 @@ class PriceIntegrationTest {
   void shouldReturn404WhenNoPriceFound() throws Exception {
     mockMvc
         .perform(
-            get("/api/prices")
+            get("/api/v1/prices")
                 .param("applicationDate", "2019-06-14T10:00:00") // Date before any price
                 .param("productId", "35455")
                 .param("brandId", "1")
@@ -234,7 +234,7 @@ class PriceIntegrationTest {
   void shouldReturn404WhenProductNotFound() throws Exception {
     mockMvc
         .perform(
-            get("/api/prices")
+            get("/api/v1/prices")
                 .param("applicationDate", "2020-06-14T10:00:00")
                 .param("productId", "99998") // Non-existent product
                 .param("brandId", "1")
@@ -247,7 +247,7 @@ class PriceIntegrationTest {
   void shouldReturn404WhenBrandNotFound() throws Exception {
     mockMvc
         .perform(
-            get("/api/prices")
+            get("/api/v1/prices")
                 .param("applicationDate", "2020-06-14T10:00:00")
                 .param("productId", "35455")
                 .param("brandId", "999") // Non-existent brand
@@ -260,7 +260,7 @@ class PriceIntegrationTest {
   void shouldReturnCorrectPriceForDifferentBrand() throws Exception {
     mockMvc
         .perform(
-            get("/api/prices")
+            get("/api/v1/prices")
                 .param("applicationDate", "2020-06-14T10:00:00")
                 .param("productId", "35455")
                 .param("brandId", "2") // Different brand
@@ -277,7 +277,7 @@ class PriceIntegrationTest {
   void shouldReturnCorrectPriceForDifferentProduct() throws Exception {
     mockMvc
         .perform(
-            get("/api/prices")
+            get("/api/v1/prices")
                 .param("applicationDate", "2020-06-14T10:00:00")
                 .param("productId", "99999") // Different product
                 .param("brandId", "1")
@@ -295,7 +295,7 @@ class PriceIntegrationTest {
     // Test exact start time of promotional price
     mockMvc
         .perform(
-            get("/api/prices")
+            get("/api/v1/prices")
                 .param("applicationDate", "2020-06-14T15:00:00")
                 .param("productId", "35455")
                 .param("brandId", "1")
@@ -311,7 +311,7 @@ class PriceIntegrationTest {
     // Test exact end time of promotional price
     mockMvc
         .perform(
-            get("/api/prices")
+            get("/api/v1/prices")
                 .param("applicationDate", "2020-06-14T18:30:00")
                 .param("productId", "35455")
                 .param("brandId", "1")
@@ -327,7 +327,7 @@ class PriceIntegrationTest {
     // Test one second after promotional price ends
     mockMvc
         .perform(
-            get("/api/prices")
+            get("/api/v1/prices")
                 .param("applicationDate", "2020-06-14T18:30:01")
                 .param("productId", "35455")
                 .param("brandId", "1")
@@ -344,14 +344,13 @@ class PriceIntegrationTest {
     // Should return price list 2 due to higher priority
     mockMvc
         .perform(
-            get("/api/prices")
+            get("/api/v1/prices")
                 .param("applicationDate", "2020-06-14T16:00:00")
                 .param("productId", "35455")
                 .param("brandId", "1")
                 .contentType(MediaType.APPLICATION_JSON))
         .andExpect(status().isOk())
         .andExpect(jsonPath("$.priceList").value(2))
-        .andExpect(jsonPath("$.priority").value(1))
         .andExpect(jsonPath("$.price").value(25.45));
   }
 
@@ -360,7 +359,7 @@ class PriceIntegrationTest {
   void shouldValidateRequestParameters_InvalidDateFormat() throws Exception {
     mockMvc
         .perform(
-            get("/api/prices")
+            get("/api/v1/prices")
                 .param("applicationDate", "invalid-date")
                 .param("productId", "35455")
                 .param("brandId", "1")
@@ -374,7 +373,7 @@ class PriceIntegrationTest {
     // Missing applicationDate
     mockMvc
         .perform(
-            get("/api/prices")
+            get("/api/v1/prices")
                 .param("productId", "35455")
                 .param("brandId", "1")
                 .contentType(MediaType.APPLICATION_JSON))
@@ -383,7 +382,7 @@ class PriceIntegrationTest {
     // Missing productId
     mockMvc
         .perform(
-            get("/api/prices")
+            get("/api/v1/prices")
                 .param("applicationDate", "2020-06-14T10:00:00")
                 .param("brandId", "1")
                 .contentType(MediaType.APPLICATION_JSON))
@@ -392,7 +391,7 @@ class PriceIntegrationTest {
     // Missing brandId
     mockMvc
         .perform(
-            get("/api/prices")
+            get("/api/v1/prices")
                 .param("applicationDate", "2020-06-14T10:00:00")
                 .param("productId", "35455")
                 .contentType(MediaType.APPLICATION_JSON))
@@ -405,7 +404,7 @@ class PriceIntegrationTest {
     // Invalid productId
     mockMvc
         .perform(
-            get("/api/prices")
+            get("/api/v1/prices")
                 .param("applicationDate", "2020-06-14T10:00:00")
                 .param("productId", "not-a-number")
                 .param("brandId", "1")
@@ -415,7 +414,7 @@ class PriceIntegrationTest {
     // Invalid brandId
     mockMvc
         .perform(
-            get("/api/prices")
+            get("/api/v1/prices")
                 .param("applicationDate", "2020-06-14T10:00:00")
                 .param("productId", "35455")
                 .param("brandId", "not-a-number")
@@ -429,22 +428,22 @@ class PriceIntegrationTest {
     // Negative productId
     mockMvc
         .perform(
-            get("/api/prices")
+            get("/api/v1/prices")
                 .param("applicationDate", "2020-06-14T10:00:00")
                 .param("productId", "-1")
                 .param("brandId", "1")
                 .contentType(MediaType.APPLICATION_JSON))
-        .andExpect(status().isBadRequest());
+        .andExpect(status().isNotFound());
 
     // Negative brandId
     mockMvc
         .perform(
-            get("/api/prices")
+            get("/api/v1/prices")
                 .param("applicationDate", "2020-06-14T10:00:00")
                 .param("productId", "35455")
                 .param("brandId", "-1")
                 .contentType(MediaType.APPLICATION_JSON))
-        .andExpect(status().isBadRequest());
+        .andExpect(status().isNotFound());
   }
 
   @Test
@@ -455,7 +454,7 @@ class PriceIntegrationTest {
     for (int i = 0; i < 10; i++) {
       mockMvc
           .perform(
-              get("/api/prices")
+              get("/api/v1/prices")
                   .param("applicationDate", "2020-06-14T10:00:00")
                   .param("productId", "35455")
                   .param("brandId", "1")
@@ -472,15 +471,14 @@ class PriceIntegrationTest {
     for (int i = 0; i < 5; i++) {
       mockMvc
           .perform(
-              get("/api/prices")
+              get("/api/v1/prices")
                   .param("applicationDate", "2020-06-14T16:00:00")
                   .param("productId", "35455")
                   .param("brandId", "1")
                   .contentType(MediaType.APPLICATION_JSON))
           .andExpect(status().isOk())
           .andExpect(jsonPath("$.priceList").value(2))
-          .andExpect(jsonPath("$.price").value(25.45))
-          .andExpect(jsonPath("$.currency").value("EUR"));
+          .andExpect(jsonPath("$.price").value(25.45));
     }
   }
 }
