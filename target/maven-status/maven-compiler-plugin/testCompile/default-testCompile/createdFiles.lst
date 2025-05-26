@@ -1,6 +1,6 @@
-com/pruebaItx/unit/adapter/in/web/PriceControllerTest.class
 com/pruebaItx/unit/adapter/out/persistence/PricePersistenceAdapterTest.class
 com/pruebaItx/acceptance/PriceAcceptanceTest.class
 com/pruebaItx/PruebaItxApplicationTests.class
 com/pruebaItx/SwaggerConfigTest.class
+com/pruebaItx/unit/adapter/in/web/PriceControllerTest.class
 com/pruebaItx/integration/PriceIntegrationTest.class

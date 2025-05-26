@@ -45,7 +45,7 @@ class PriceAcceptanceTest {
                 .contentType(
                     MediaType
                         .APPLICATION_JSON)) // This content type applies to the request, not the
-                                            // response
+        // response
         .andExpect(status().isOk())
         .andExpect(content().contentType(MediaType.APPLICATION_JSON))
         .andExpect(jsonPath("$.productId").value(PRODUCT_ID))
@@ -163,7 +163,7 @@ class PriceAcceptanceTest {
                 .value(
                     containsString(
                         "Required parameter 'applicationDate' is not present"))); // Specific
-                                                                                  // message
+    // message
   }
 
   @Test
@@ -296,7 +296,7 @@ class PriceAcceptanceTest {
                 .value(
                     startsWith(
                         "No applicable price found for brandId:"))); // Match the specific message
-                                                                     // from PriceNotFoundException
+    // from PriceNotFoundException
   }
 
   @Test
