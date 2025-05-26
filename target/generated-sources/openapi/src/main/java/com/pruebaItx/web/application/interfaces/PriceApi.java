@@ -41,10 +41,6 @@ import jakarta.annotation.Generated;
 @Tag(name = "Price", description = "the Price API")
 public interface PriceApi {
 
-    default Optional<NativeWebRequest> getRequest() {
-        return Optional.empty();
-    }
-
     /**
      * GET /api/v1/prices : Get applicable price
      * Returns the applicable price for a product based on application date, product ID and brand ID
@@ -83,37 +79,10 @@ public interface PriceApi {
         produces = { "application/json" }
     )
     
-    default ResponseEntity<PriceResponse> getPrice(
+    ResponseEntity<PriceResponse> getPrice(
         @NotNull @Parameter(name = "applicationDate", description = "Date and time when the price should be applied (ISO 8601 format)", required = true, in = ParameterIn.QUERY) @Valid @RequestParam(value = "applicationDate", required = true) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime applicationDate,
         @NotNull @Parameter(name = "productId", description = "Product identifier", required = true, in = ParameterIn.QUERY) @Valid @RequestParam(value = "productId", required = true) Long productId,
         @NotNull @Parameter(name = "brandId", description = "Brand identifier (1 = ZARA)", required = true, in = ParameterIn.QUERY) @Valid @RequestParam(value = "brandId", required = true) Long brandId
-    ) {
-        getRequest().ifPresent(request -> {
-            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"productId\" : 35455, \"endDate\" : \"2000-01-23T04:56:07.000+00:00\", \"price\" : 35.5, \"brandId\" : 1, \"currency\" : \"EUR\", \"startDate\" : \"2000-01-23T04:56:07.000+00:00\", \"priceList\" : 1 }";
-                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"path\" : \"/api/v1/prices\", \"error\" : \"PRICE_NOT_FOUND\", \"message\" : \"No price found for the given parameters\", \"timestamp\" : \"2023-10-01T10:00:00Z\" }";
-                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"path\" : \"/api/v1/prices\", \"error\" : \"PRICE_NOT_FOUND\", \"message\" : \"No price found for the given parameters\", \"timestamp\" : \"2023-10-01T10:00:00Z\" }";
-                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"path\" : \"/api/v1/prices\", \"error\" : \"PRICE_NOT_FOUND\", \"message\" : \"No price found for the given parameters\", \"timestamp\" : \"2023-10-01T10:00:00Z\" }";
-                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
-                    break;
-                }
-            }
-        });
-        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
-
-    }
+    );
 
 }

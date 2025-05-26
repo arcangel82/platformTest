@@ -17,12 +17,13 @@ com/pruebaItx/application/port/in/GetPriceUseCase.class
 com/pruebaItx/domain/exception/PriceNotFoundException.class
 com/pruebaItx/web/application/entities/ErrorResponse.class
 com/pruebaItx/application/port/out/PriceRepositoryPort.class
-com/pruebaItx/infrastructure/config/OpenApiConfig.class
 com/pruebaItx/infrastructure/adapter/out/persistence/PricePersistenceAdapter.class
 com/pruebaItx/infrastructure/adapter/in/web/dto/PriceResponseDto$PriceResponseDtoBuilder.class
+com/pruebaItx/infrastructure/config/JacksonConfig.class
 com/pruebaItx/infrastructure/config/GlobalExceptionHandler.class
 com/pruebaItx/infrastructure/adapter/in/web/dto/PriceRequestDto$PriceRequestDtoBuilder.class
 com/pruebaItx/application/service/PriceService.class
 com/pruebaItx/domain/model/Price.class
+com/pruebaItx/infrastructure/config/OpenApiJacksonConfig.class
 com/pruebaItx/infrastructure/adapter/out/persistence/entity/PriceEntity.class
 com/pruebaItx/web/application/interfaces/ApiUtil.class

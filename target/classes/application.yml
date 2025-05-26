@@ -4,7 +4,7 @@ spring:
   
   # Database Configuration
   datasource:
-    url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE;MODE=MySQL
     username: sa
     password:
     driver-class-name: org.h2.Driver
@@ -37,12 +37,19 @@ spring:
       mode: always
       data-locations: classpath:data.sql
 
-  # Jackson Configuration
   jackson:
     serialization:
       write-dates-as-timestamps: false
-    date-format: yyyy-MM-dd'T'HH:mm:ss
+      write-date-timestamps-as-nanoseconds: false
+    deserialization:
+      read-date-timestamps-as-nanoseconds: false
+    date-format: "yyyy-MM-dd'T'HH:mm:ss"
     time-zone: UTC
+    default-property-inclusion: non_null
+
+  web:
+    format:
+      date-time: "yyyy-MM-dd'T'HH:mm:ss"
 
   # Web Configuration
   mvc:
@@ -107,6 +114,8 @@ springdoc:
     filter: true
     display-request-duration: true
   show-actuator: true
+  default-flat-param-object: true
+  writer-with-order-by-keys: true
 
 # Application Info
 info:
@@ -137,9 +146,6 @@ app:
 ---
 # Test Profile
 spring:
-  jackson:
-    serialization:
-      write-dates-as-timestamps: false
   config:
     activate:
       on-profile: test
@@ -165,9 +171,6 @@ logging:
 ---
 # Development Profile
 spring:
-  jackson:
-    serialization:
-      write-dates-as-timestamps: false
   config:
     activate:
       on-profile: dev
@@ -186,9 +189,6 @@ logging:
 ---
 # Production Profile  
 spring:
-  jackson:
-    serialization:
-      write-dates-as-timestamps: false
   config:
     activate:
       on-profile: prod
@@ -202,6 +202,6 @@ spring:
 
 logging:
   level:
-    com.inditex.platform: WARN
+    com.pruebaItx: WARN
     org.springframework: WARN
     org.hibernate: WARN

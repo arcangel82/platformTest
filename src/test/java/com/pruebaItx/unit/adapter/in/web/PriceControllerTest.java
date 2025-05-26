@@ -58,7 +58,7 @@ class PriceControllerTest {
 
     when(getPriceUseCase.getApplicablePrice(brandId, productId, applicationDate))
         .thenReturn(mockPrice);
-    when(priceWebMapper.toDto(mockPrice)).thenReturn(mockResponse);
+    when(priceWebMapper.toPriceResponse(mockPrice)).thenReturn(mockResponse);
 
     mockMvc
         .perform(

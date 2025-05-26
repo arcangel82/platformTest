@@ -102,13 +102,15 @@ components:
         startDate:
           type: string
           format: date-time
-          description: Start date of price validity
-          example: "2020-06-14T00:00:00"
+          example: "2020-06-14T15:00:00"
+          description: "Start date and time in ISO 8601 format"
+          pattern: "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}$"
         endDate:
           type: string
           format: date-time
-          description: End date of price validity
           example: "2020-12-31T23:59:59"
+          description: "End date and time in ISO 8601 format"
+          pattern: "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}$"
         price:
           type: number
           format: double

@@ -237,24 +237,57 @@
                                 <interfaceOnly>true</interfaceOnly>
                                 <useOptional>false</useOptional>
                                 <hideGenerationTimestamp>true</hideGenerationTimestamp>
+                                <!-- CLAVE: Configuración específica para fechas -->
                                 <dateLibrary>java8-localdatetime</dateLibrary>
+                                <serializationLibrary>jackson</serializationLibrary>
                                 <useTags>true</useTags>
                                 <apiPackage>com.pruebaItx.web.application.interfaces</apiPackage>
                                 <modelPackage>com.pruebaItx.web.application.entities</modelPackage>
+                                <withXml>false</withXml>
+                                <useBeanValidation>true</useBeanValidation>
+                                <performBeanValidation>true</performBeanValidation>
+                                <useJakartaEe>true</useJakartaEe>
+                                <!-- CLAVE: Estas opciones evitan la serialización como array -->
+                                <openApiNullable>false</openApiNullable>
+                                <skipDefaultInterface>true</skipDefaultInterface>
+                                <useOneOfInterfaces>false</useOneOfInterfaces>
+                                <legacyDiscriminatorBehavior>false</legacyDiscriminatorBehavior>
                             </configOptions>
+
+                            <!-- MAPEOS DE TIPOS MÁS ESPECÍFICOS -->
                             <typeMappings>
                                 <typeMapping>DateTime=LocalDateTime</typeMapping>
                                 <typeMapping>date-time=LocalDateTime</typeMapping>
                                 <typeMapping>OffsetDateTime=LocalDateTime</typeMapping>
+                                <typeMapping>date=LocalDate</typeMapping>
+                                <typeMapping>time=LocalTime</typeMapping>
+                                <!-- CLAVE: Mapeo explícito para string date-time -->
+                                <typeMapping>string+date-time=LocalDateTime</typeMapping>
                             </typeMappings>
+
+                            <!-- MAPEOS DE IMPORTACIÓN -->
                             <importMappings>
                                 <importMapping>LocalDateTime=java.time.LocalDateTime</importMapping>
                                 <importMapping>OffsetDateTime=java.time.LocalDateTime</importMapping>
                                 <importMapping>DateTime=java.time.LocalDateTime</importMapping>
+                                <importMapping>LocalDate=java.time.LocalDate</importMapping>
+                                <importMapping>LocalTime=java.time.LocalTime</importMapping>
                             </importMappings>
+
+                            <!-- MAPEOS DE ESQUEMA -->
                             <schemaMappings>
                                 <schemaMapping>DateTime=java.time.LocalDateTime</schemaMapping>
+                                <schemaMapping>date-time=java.time.LocalDateTime</schemaMapping>
                             </schemaMappings>
+
+                            <!-- PLANTILLAS ADICIONALES -->
+                            <additionalProperties>
+                                <additionalProperty>dateLibrary=java8-localdatetime</additionalProperty>
+                                <additionalProperty>jackson=true</additionalProperty>
+                                <additionalProperty>serializationLibrary=jackson</additionalProperty>
+                                <!-- CLAVE: Fuerza el uso de anotaciones Jackson -->
+                                <additionalProperty>withXml=false</additionalProperty>
+                            </additionalProperties>
                         </configuration>
                     </execution>
                 </executions>

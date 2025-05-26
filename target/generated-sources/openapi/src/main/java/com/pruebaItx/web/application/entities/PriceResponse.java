@@ -7,10 +7,10 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import java.time.LocalDateTime;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.lang.Nullable;
-import org.openapitools.jackson.nullable.JsonNullable;
 import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.*;
+import org.hibernate.validator.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
 
 
@@ -122,11 +122,11 @@ public class PriceResponse {
   }
 
   /**
-   * Start date of price validity
+   * Start date and time in ISO 8601 format
    * @return startDate
    */
-  @NotNull @Valid 
-  @Schema(name = "startDate", description = "Start date of price validity", requiredMode = Schema.RequiredMode.REQUIRED)
+  @NotNull @Valid @Pattern(regexp = "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}$") 
+  @Schema(name = "startDate", description = "Start date and time in ISO 8601 format", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("startDate")
   public LocalDateTime getStartDate() {
     return startDate;
@@ -142,11 +142,11 @@ public class PriceResponse {
   }
 
   /**
-   * End date of price validity
+   * End date and time in ISO 8601 format
    * @return endDate
    */
-  @NotNull @Valid 
-  @Schema(name = "endDate", description = "End date of price validity", requiredMode = Schema.RequiredMode.REQUIRED)
+  @NotNull @Valid @Pattern(regexp = "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}$") 
+  @Schema(name = "endDate", description = "End date and time in ISO 8601 format", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("endDate")
   public LocalDateTime getEndDate() {
     return endDate;

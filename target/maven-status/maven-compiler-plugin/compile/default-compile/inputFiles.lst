@@ -16,7 +16,8 @@
 /home/angelperez/Desarrollo/apps/TestProjects/ITX_Plataforma_CasoPractico/src/main/java/com/pruebaItx/infrastructure/config/BeanConfiguration.java
 /home/angelperez/Desarrollo/apps/TestProjects/ITX_Plataforma_CasoPractico/src/main/java/com/pruebaItx/infrastructure/config/GlobalExceptionHandler.java
 /home/angelperez/Desarrollo/apps/TestProjects/ITX_Plataforma_CasoPractico/src/main/java/com/pruebaItx/infrastructure/config/H2ServerConfig.java
-/home/angelperez/Desarrollo/apps/TestProjects/ITX_Plataforma_CasoPractico/src/main/java/com/pruebaItx/infrastructure/config/OpenApiConfig.java
+/home/angelperez/Desarrollo/apps/TestProjects/ITX_Plataforma_CasoPractico/src/main/java/com/pruebaItx/infrastructure/config/JacksonConfig.java
+/home/angelperez/Desarrollo/apps/TestProjects/ITX_Plataforma_CasoPractico/src/main/java/com/pruebaItx/infrastructure/config/OpenApiJacksonConfig.java
 /home/angelperez/Desarrollo/apps/TestProjects/ITX_Plataforma_CasoPractico/target/generated-sources/openapi/src/main/java/com/pruebaItx/web/application/entities/ErrorResponse.java
 /home/angelperez/Desarrollo/apps/TestProjects/ITX_Plataforma_CasoPractico/target/generated-sources/openapi/src/main/java/com/pruebaItx/web/application/entities/PriceResponse.java
 /home/angelperez/Desarrollo/apps/TestProjects/ITX_Plataforma_CasoPractico/target/generated-sources/openapi/src/main/java/com/pruebaItx/web/application/interfaces/ApiUtil.java

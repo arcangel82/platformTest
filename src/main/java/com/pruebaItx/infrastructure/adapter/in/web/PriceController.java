@@ -40,7 +40,7 @@ public class PriceController implements PriceApi {
     try {
       Price price = getPriceUseCase.getApplicablePrice(brandId, productId, applicationDate);
 
-      return ResponseEntity.ok(priceWebMapper.toDto(price));
+      return ResponseEntity.ok(priceWebMapper.toPriceResponse(price));
     } catch (PriceNotFoundException e) {
       log.info(
           "No price found for applicationDate={}, productId={}, brandId={}. Reason: {}",

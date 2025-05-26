@@ -1,5 +1,6 @@
 package com.pruebaItx.domain.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.Objects;
@@ -13,8 +14,13 @@ import lombok.Getter;
 public final class Price {
 
   private final Long brandId;
+
+  @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
   private final LocalDateTime startDate;
+
+  @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
   private final LocalDateTime endDate;
+
   private final Integer priceList;
   private final Long productId;
   private final Integer priority;
