@@ -1,0 +1,141 @@
+
+openapi: 3.0.3
+info:
+  title: Price API
+  description: API for querying product prices based on application date, product ID and brand ID
+  version: 1.0.0
+  contact:
+    name: Angel Perez
+    email: angelperez@paradigmadigital.com
+
+servers:
+  - url: http://localhost:8081
+    description: Local development server
+  - url: http://localhost:8081
+    description: Docker environment
+
+paths:
+  /api/v1/prices:
+    get:
+      tags:
+        - Price
+      summary: Get applicable price
+      description: Returns the applicable price for a product based on application date, product ID and brand ID
+      operationId: getPrice
+      parameters:
+        - name: applicationDate
+          in: query
+          required: true
+          description: Date and time when the price should be applied (ISO 8601 format)
+          schema:
+            type: string
+            format: date-time
+          example: "2020-06-14T10:00:00"
+        - name: productId
+          in: query
+          required: true
+          description: Product identifier
+          schema:
+            type: integer
+            format: int64
+          example: 35455
+        - name: brandId
+          in: query
+          required: true
+          description: Brand identifier (1 = ZARA)
+          schema:
+            type: integer
+            format: int64
+          example: 1
+      responses:
+        '200':
+          description: Price found successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PriceResponse'
+        '400':
+          description: Invalid request parameters
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: Price not found for the given parameters
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+components:
+  schemas:
+    PriceResponse:
+      type: object
+      required:
+        - productId
+        - brandId
+        - priceList
+        - startDate
+        - endDate
+        - price
+      properties:
+        productId:
+          type: integer
+          format: int64
+          description: Product identifier
+          example: 35455
+        brandId:
+          type: integer
+          format: int64
+          description: Brand identifier
+          example: 1
+        priceList:
+          type: integer
+          description: Price list identifier
+          example: 1
+        startDate:
+          type: string
+          format: date-time
+          description: Start date of price validity
+          example: "2020-06-14T00:00:00"
+        endDate:
+          type: string
+          format: date-time
+          description: End date of price validity
+          example: "2020-12-31T23:59:59"
+        price:
+          type: number
+          format: double
+          description: Final price to apply
+          example: 35.50
+
+    ErrorResponse:
+      type: object
+      required:
+        - error
+        - message
+        - timestamp
+      properties:
+        error:
+          type: string
+          description: Error type
+          example: "PRICE_NOT_FOUND"
+        message:
+          type: string
+          description: Error message
+          example: "No price found for the given parameters"
+        timestamp:
+          type: string
+          format: date-time
+          description: Error timestamp
+          example: "2023-10-01T10:00:00Z"
+        path:
+          type: string
+          description: Request path
+          example: "/api/v1/prices"

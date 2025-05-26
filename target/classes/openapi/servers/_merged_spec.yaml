@@ -1,0 +1,11 @@
+---
+servers:
+- url: "http://localhost:8080"
+openapi: "3.0.3"
+paths:
+  /api/v1/prices:
+    $ref: "./price-api.yml#/paths/~1api~1v1~1prices"
+info:
+  title: "merged spec"
+  description: "merged spec"
+  version: "1.0.0"
