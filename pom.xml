@@ -233,18 +233,24 @@
                                 <interfaceOnly>true</interfaceOnly>
                                 <useOptional>false</useOptional>
                                 <hideGenerationTimestamp>true</hideGenerationTimestamp>
-
-                                <dateLibrary>java8</dateLibrary>
+                                <dateLibrary>java8-localdatetime</dateLibrary>
                                 <useTags>true</useTags>
                                 <apiPackage>com.pruebaItx.web.application.interfaces</apiPackage>
                                 <modelPackage>com.pruebaItx.web.application.entities</modelPackage>
                             </configOptions>
                             <typeMappings>
+                                <typeMapping>DateTime=LocalDateTime</typeMapping>
+                                <typeMapping>date-time=LocalDateTime</typeMapping>
                                 <typeMapping>OffsetDateTime=LocalDateTime</typeMapping>
                             </typeMappings>
                             <importMappings>
-                                <importMapping>java.time.OffsetDateTime=java.time.LocalDateTime</importMapping>
+                                <importMapping>LocalDateTime=java.time.LocalDateTime</importMapping>
+                                <importMapping>OffsetDateTime=java.time.LocalDateTime</importMapping>
+                                <importMapping>DateTime=java.time.LocalDateTime</importMapping>
                             </importMappings>
+                            <schemaMappings>
+                                <schemaMapping>DateTime=java.time.LocalDateTime</schemaMapping>
+                            </schemaMappings>
                         </configuration>
                     </execution>
                 </executions>

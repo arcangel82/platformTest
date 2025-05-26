@@ -22,9 +22,9 @@ public class SwaggerConfigTest {
     // Then
     assertNotNull(openAPI);
     assertNotNull(openAPI.getInfo());
-    assertEquals("Product API", openAPI.getInfo().getTitle());
+    assertEquals("Prices API", openAPI.getInfo().getTitle());
     assertEquals("1.0", openAPI.getInfo().getVersion());
-    assertEquals("API for managing products", openAPI.getInfo().getDescription());
+    assertEquals("API for managing prices", openAPI.getInfo().getDescription());
     assertNotNull(openAPI.getInfo().getContact());
     assertEquals("Angel Perez", openAPI.getInfo().getContact().getName());
     assertEquals("angelperez@paradigmadigital.com", openAPI.getInfo().getContact().getEmail());
@@ -41,9 +41,9 @@ public class SwaggerConfigTest {
 
     // Then
     assertNotNull(info);
-    assertEquals("Product API", info.getTitle());
+    assertEquals("Prices API", info.getTitle());
     assertEquals("1.0", info.getVersion());
-    assertEquals("API for managing products", info.getDescription());
+    assertEquals("API for managing prices", info.getDescription());
   }
 
   @Test

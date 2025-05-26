@@ -7,7 +7,7 @@ package com.pruebaItx.web.application.interfaces;
 
 import org.springframework.format.annotation.DateTimeFormat;
 import com.pruebaItx.web.application.entities.ErrorResponse;
-import java.time.OffsetDateTime;
+import java.time.LocalDateTime;
 import com.pruebaItx.web.application.entities.PriceResponse;
 import io.swagger.v3.oas.annotations.ExternalDocumentation;
 import io.swagger.v3.oas.annotations.Operation;

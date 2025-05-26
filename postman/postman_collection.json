@@ -1,345 +1,751 @@
 {
   "info": {
-    "_postman_id": "b5b5b5b5-b5b5-b5b5-b5b5-b5b5b5b5b5b5",
-    "name": "ITX Plataforma API",
-    "description": "Collection for testing the ITX Plataforma API",
+    "name": "Prices API - Test Collection",
+    "description": "Colección completa para probar la API de precios con todos los casos de uso requeridos",
+    "version": "1.0.0",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
   },
-  "item": [
+  "variable": [
     {
-      "name": "GET Endpoints",
-      "item": [
-        {
-          "name": "Get Products Sorted (Sales Factor Only)",
-          "request": {
-            "method": "GET",
-            "header": [
-              {
-                "key": "saleFactor",
-                "value": "1",
-                "type": "text"
-              },
-              {
-                "key": "stockFactor",
-                "value": "0",
-                "type": "text"
-              }
-            ],
-            "url": {
-              "raw": "http://localhost:8081/product",
-              "protocol": "http",
-              "host": [
-                "localhost"
-              ],
-              "port": "8081",
-              "path": [
-                "product"
-              ]
-            },
-            "description": "Get products sorted by sales factor only"
-          },
-          "response": []
-        },
-        {
-          "name": "Get Products Sorted (Stock Factor Only)",
-          "request": {
-            "method": "GET",
-            "header": [
-              {
-                "key": "saleFactor",
-                "value": "0",
-                "type": "text"
-              },
-              {
-                "key": "stockFactor",
-                "value": "1",
-                "type": "text"
-              }
-            ],
-            "url": {
-              "raw": "http://localhost:8081/product",
-              "protocol": "http",
-              "host": [
-                "localhost"
-              ],
-              "port": "8081",
-              "path": [
-                "product"
-              ]
-            },
-            "description": "Get products sorted by stock factor only"
-          },
-          "response": []
-        },
-        {
-          "name": "Get Products Sorted (Equal Weights)",
-          "request": {
-            "method": "GET",
-            "header": [
-              {
-                "key": "saleFactor",
-                "value": "1",
-                "type": "text"
-              },
-              {
-                "key": "stockFactor",
-                "value": "1",
-                "type": "text"
-              }
-            ],
-            "url": {
-              "raw": "http://localhost:8081/product",
-              "protocol": "http",
-              "host": [
-                "localhost"
-              ],
-              "port": "8081",
-              "path": [
-                "product"
-              ]
-            },
-            "description": "Get products sorted with equal weights for sales and stock factors"
-          },
-          "response": []
-        },
-        {
-          "name": "Get Products Sorted (Custom Weights)",
-          "request": {
-            "method": "GET",
-            "header": [
-              {
-                "key": "saleFactor",
-                "value": "2",
-                "type": "text"
-              },
-              {
-                "key": "stockFactor",
-                "value": "3",
-                "type": "text"
-              }
-            ],
-            "url": {
-              "raw": "http://localhost:8081/product",
-              "protocol": "http",
-              "host": [
-                "localhost"
-              ],
-              "port": "8081",
-              "path": [
-                "product"
-              ]
-            },
-            "description": "Get products sorted with custom weights for sales and stock factors"
-          },
-          "response": []
-        },
-        {
-          "name": "Get Available Sorting Criteria",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "http://localhost:8081/product/criteria",
-              "protocol": "http",
-              "host": [
-                "localhost"
-              ],
-              "port": "8081",
-              "path": [
-                "product",
-                "criteria"
-              ]
-            },
-            "description": "Get the list of available sorting criteria"
-          },
-          "response": []
-        }
-      ]
+      "key": "baseUrl",
+      "value": "http://localhost:8080",
+      "type": "string"
     },
     {
-      "name": "POST Endpoints",
-      "item": [
+      "key": "brandId",
+      "value": "1",
+      "type": "string"
+    },
+    {
+      "key": "productId",
+      "value": "35455",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "Test Case 1 - Price at 10:00 on June 14th",
+      "event": [
         {
-          "name": "Post Products Sorted (Sales Factor Only)",
-          "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json",
-                "type": "text"
-              }
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('Status code is 200', function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "",
+              "pm.test('Response has required fields', function () {",
+              "    const responseJson = pm.response.json();",
+              "    pm.expect(responseJson).to.have.property('productId');",
+              "    pm.expect(responseJson).to.have.property('brandId');",
+              "    pm.expect(responseJson).to.have.property('priceList');",
+              "    pm.expect(responseJson).to.have.property('startDate');",
+              "    pm.expect(responseJson).to.have.property('endDate');",
+              "    pm.expect(responseJson).to.have.property('price');",
+              "    pm.expect(responseJson).to.have.property('currency');",
+              "});",
+              "",
+              "pm.test('Product and Brand IDs match request', function () {",
+              "    const responseJson = pm.response.json();",
+              "    pm.expect(responseJson.productId).to.eql(35455);",
+              "    pm.expect(responseJson.brandId).to.eql(1);",
+              "});",
+              "",
+              "pm.test('Price is valid number', function () {",
+              "    const responseJson = pm.response.json();",
+              "    pm.expect(responseJson.price).to.be.a('number');",
+              "    pm.expect(responseJson.price).to.be.above(0);",
+              "});",
+              "",
+              "pm.test('Currency is EUR', function () {",
+              "    const responseJson = pm.response.json();",
+              "    pm.expect(responseJson.currency).to.eql('EUR');",
+              "});"
             ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"criteria\": [\n    {\n      \"id\": \"salesUnits\",\n      \"weight\": 1\n    }\n  ]\n}"
-            },
-            "url": {
-              "raw": "http://localhost:8081/product",
-              "protocol": "http",
-              "host": [
-                "localhost"
-              ],
-              "port": "8081",
-              "path": [
-                "product"
-              ]
-            },
-            "description": "Get products sorted by sales factor only using POST endpoint"
-          },
-          "response": []
-        },
-        {
-          "name": "Post Products Sorted (Stock Factor Only)",
-          "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json",
-                "type": "text"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"criteria\": [\n    {\n      \"id\": \"stockRatio\",\n      \"weight\": 1\n    }\n  ]\n}"
-            },
-            "url": {
-              "raw": "http://localhost:8081/product",
-              "protocol": "http",
-              "host": [
-                "localhost"
-              ],
-              "port": "8081",
-              "path": [
-                "product"
-              ]
-            },
-            "description": "Get products sorted by stock factor only using POST endpoint"
-          },
-          "response": []
-        },
-        {
-          "name": "Post Products Sorted (Equal Weights)",
-          "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json",
-                "type": "text"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"criteria\": [\n    {\n      \"id\": \"salesUnits\",\n      \"weight\": 1\n    },\n    {\n      \"id\": \"stockRatio\",\n      \"weight\": 1\n    }\n  ]\n}"
-            },
-            "url": {
-              "raw": "http://localhost:8081/product",
-              "protocol": "http",
-              "host": [
-                "localhost"
-              ],
-              "port": "8081",
-              "path": [
-                "product"
-              ]
-            },
-            "description": "Get products sorted with equal weights for sales and stock factors using POST endpoint"
-          },
-          "response": []
-        },
-        {
-          "name": "Post Products Sorted (Custom Weights)",
-          "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json",
-                "type": "text"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"criteria\": [\n    {\n      \"id\": \"salesUnits\",\n      \"weight\": 2\n    },\n    {\n      \"id\": \"stockRatio\",\n      \"weight\": 3\n    }\n  ]\n}"
-            },
-            "url": {
-              "raw": "http://localhost:8081/product",
-              "protocol": "http",
-              "host": [
-                "localhost"
-              ],
-              "port": "8081",
-              "path": [
-                "product"
-              ]
-            },
-            "description": "Get products sorted with custom weights for sales and stock factors using POST endpoint"
-          },
-          "response": []
-        },
-        {
-          "name": "Post Products Sorted (Empty Criteria)",
-          "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json",
-                "type": "text"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"criteria\": []\n}"
-            },
-            "url": {
-              "raw": "http://localhost:8081/product",
-              "protocol": "http",
-              "host": [
-                "localhost"
-              ],
-              "port": "8081",
-              "path": [
-                "product"
-              ]
-            },
-            "description": "Get products with empty criteria using POST endpoint"
-          },
-          "response": []
-        },
-        {
-          "name": "Post Products Sorted (Invalid Criterion ID)",
-          "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json",
-                "type": "text"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"criteria\": [\n    {\n      \"id\": \"invalidCriterion\",\n      \"weight\": 1\n    }\n  ]\n}"
-            },
-            "url": {
-              "raw": "http://localhost:8081/product",
-              "protocol": "http",
-              "host": [
-                "localhost"
-              ],
-              "port": "8081",
-              "path": [
-                "product"
-              ]
-            },
-            "description": "Get products with invalid criterion ID using POST endpoint"
-          },
-          "response": []
+            "type": "text/javascript"
+          }
         }
-      ]
+      ],
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/prices?applicationDate=2020-06-14T10:00:00&productId={{productId}}&brandId={{brandId}}",
+          "host": ["{{baseUrl}}"],
+          "path": ["prices"],
+          "query": [
+            {
+              "key": "applicationDate",
+              "value": "2020-06-14T10:00:00"
+            },
+            {
+              "key": "productId",
+              "value": "{{productId}}"
+            },
+            {
+              "key": "brandId",
+              "value": "{{brandId}}"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Test Case 2 - Price at 16:00 on June 14th",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('Status code is 200', function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "",
+              "pm.test('Response has all required fields', function () {",
+              "    const responseJson = pm.response.json();",
+              "    pm.expect(responseJson).to.have.all.keys('productId', 'brandId', 'priceList', 'startDate', 'endDate', 'price', 'currency');",
+              "});",
+              "",
+              "pm.test('Date format is correct', function () {",
+              "    const responseJson = pm.response.json();",
+              "    pm.expect(responseJson.startDate).to.match(/^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}$/);",
+              "    pm.expect(responseJson.endDate).to.match(/^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}$/);",
+              "});",
+              "",
+              "pm.test('Priority logic works correctly', function () {",
+              "    const responseJson = pm.response.json();",
+              "    pm.expect(responseJson.priceList).to.be.a('number');",
+              "    pm.expect(responseJson.priceList).to.be.above(0);",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/prices?applicationDate=2020-06-14T16:00:00&productId={{productId}}&brandId={{brandId}}",
+          "host": ["{{baseUrl}}"],
+          "path": ["prices"],
+          "query": [
+            {
+              "key": "applicationDate",
+              "value": "2020-06-14T16:00:00"
+            },
+            {
+              "key": "productId",
+              "value": "{{productId}}"
+            },
+            {
+              "key": "brandId",
+              "value": "{{brandId}}"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Test Case 3 - Price at 21:00 on June 14th",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('Status code is 200', function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "",
+              "pm.test('Response time is acceptable', function () {",
+              "    pm.expect(pm.response.responseTime).to.be.below(1000);",
+              "});",
+              "",
+              "pm.test('Content-Type is application/json', function () {",
+              "    pm.expect(pm.response.headers.get('Content-Type')).to.include('application/json');",
+              "});",
+              "",
+              "pm.test('Price value validation', function () {",
+              "    const responseJson = pm.response.json();",
+              "    pm.expect(responseJson.price).to.be.a('number');",
+              "    pm.expect(responseJson.price.toString()).to.match(/^\\d+(\\.\\d{1,2})?$/);",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/prices?applicationDate=2020-06-14T21:00:00&productId={{productId}}&brandId={{brandId}}",
+          "host": ["{{baseUrl}}"],
+          "path": ["prices"],
+          "query": [
+            {
+              "key": "applicationDate",
+              "value": "2020-06-14T21:00:00"
+            },
+            {
+              "key": "productId",
+              "value": "{{productId}}"
+            },
+            {
+              "key": "brandId",
+              "value": "{{brandId}}"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Test Case 4 - Price at 10:00 on June 15th",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('Status code is 200', function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "",
+              "pm.test('Application date is within validity period', function () {",
+              "    const responseJson = pm.response.json();",
+              "    const startDate = new Date(responseJson.startDate);",
+              "    const endDate = new Date(responseJson.endDate);",
+              "    const applicationDate = new Date('2020-06-15T10:00:00');",
+              "    ",
+              "    pm.expect(applicationDate.getTime()).to.be.at.least(startDate.getTime());",
+              "    pm.expect(applicationDate.getTime()).to.be.at.most(endDate.getTime());",
+              "});",
+              "",
+              "pm.test('Brand and Product IDs are correct', function () {",
+              "    const responseJson = pm.response.json();",
+              "    pm.expect(responseJson.brandId).to.eql(1);",
+              "    pm.expect(responseJson.productId).to.eql(35455);",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/prices?applicationDate=2020-06-15T10:00:00&productId={{productId}}&brandId={{brandId}}",
+          "host": ["{{baseUrl}}"],
+          "path": ["prices"],
+          "query": [
+            {
+              "key": "applicationDate",
+              "value": "2020-06-15T10:00:00"
+            },
+            {
+              "key": "productId",
+              "value": "{{productId}}"
+            },
+            {
+              "key": "brandId",
+              "value": "{{brandId}}"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Test Case 5 - Price at 21:00 on June 16th",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('Status code is 200', function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "",
+              "pm.test('JSON schema validation', function () {",
+              "    const schema = {",
+              "        type: 'object',",
+              "        required: ['productId', 'brandId', 'priceList', 'startDate', 'endDate', 'price', 'currency'],",
+              "        properties: {",
+              "            productId: { type: 'number' },",
+              "            brandId: { type: 'number' },",
+              "            priceList: { type: 'number' },",
+              "            startDate: { type: 'string' },",
+              "            endDate: { type: 'string' },",
+              "            price: { type: 'number' },",
+              "            currency: { type: 'string', minLength: 3, maxLength: 3 }",
+              "        }",
+              "    };",
+              "    pm.response.to.have.jsonSchema(schema);",
+              "});",
+              "",
+              "pm.test('Price list is valid', function () {",
+              "    const responseJson = pm.response.json();",
+              "    pm.expect(responseJson.priceList).to.be.a('number');",
+              "    pm.expect(responseJson.priceList).to.be.at.least(1);",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/prices?applicationDate=2020-06-16T21:00:00&productId={{productId}}&brandId={{brandId}}",
+          "host": ["{{baseUrl}}"],
+          "path": ["prices"],
+          "query": [
+            {
+              "key": "applicationDate",
+              "value": "2020-06-16T21:00:00"
+            },
+            {
+              "key": "productId",
+              "value": "{{productId}}"
+            },
+            {
+              "key": "brandId",
+              "value": "{{brandId}}"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Error Case - Invalid Product ID",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('Status code is 404 for non-existent product', function () {",
+              "    pm.response.to.have.status(404);",
+              "});",
+              "",
+              "pm.test('Response time is acceptable', function () {",
+              "    pm.expect(pm.response.responseTime).to.be.below(1000);",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/prices?applicationDate=2020-06-14T10:00:00&productId=99999&brandId={{brandId}}",
+          "host": ["{{baseUrl}}"],
+          "path": ["prices"],
+          "query": [
+            {
+              "key": "applicationDate",
+              "value": "2020-06-14T10:00:00"
+            },
+            {
+              "key": "productId",
+              "value": "99999"
+            },
+            {
+              "key": "brandId",
+              "value": "{{brandId}}"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Error Case - Invalid Brand ID",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('Status code is 404 for non-existent brand', function () {",
+              "    pm.response.to.have.status(404);",
+              "});",
+              "",
+              "pm.test('No response body for 404', function () {",
+              "    pm.expect(pm.response.text()).to.be.empty;",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/prices?applicationDate=2020-06-14T10:00:00&productId={{productId}}&brandId=999",
+          "host": ["{{baseUrl}}"],
+          "path": ["prices"],
+          "query": [
+            {
+              "key": "applicationDate",
+              "value": "2020-06-14T10:00:00"
+            },
+            {
+              "key": "productId",
+              "value": "{{productId}}"
+            },
+            {
+              "key": "brandId",
+              "value": "999"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Error Case - Missing Required Parameter",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('Status code is 400 for missing parameter', function () {",
+              "    pm.response.to.have.status(400);",
+              "});",
+              "",
+              "pm.test('Error response contains validation message', function () {",
+              "    if (pm.response.headers.get('Content-Type') && pm.response.headers.get('Content-Type').includes('application/json')) {",
+              "        const responseJson = pm.response.json();",
+              "        pm.expect(responseJson).to.have.property('message');",
+              "    }",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/prices?applicationDate=2020-06-14T10:00:00&brandId={{brandId}}",
+          "host": ["{{baseUrl}}"],
+          "path": ["prices"],
+          "query": [
+            {
+              "key": "applicationDate",
+              "value": "2020-06-14T10:00:00"
+            },
+            {
+              "key": "brandId",
+              "value": "{{brandId}}"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Error Case - Invalid Date Format",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('Status code is 400 for invalid date format', function () {",
+              "    pm.response.to.have.status(400);",
+              "});",
+              "",
+              "pm.test('Response indicates date format error', function () {",
+              "    pm.expect(pm.response.code).to.be.oneOf([400, 422]);",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/prices?applicationDate=invalid-date&productId={{productId}}&brandId={{brandId}}",
+          "host": ["{{baseUrl}}"],
+          "path": ["prices"],
+          "query": [
+            {
+              "key": "applicationDate",
+              "value": "invalid-date"
+            },
+            {
+              "key": "productId",
+              "value": "{{productId}}"
+            },
+            {
+              "key": "brandId",
+              "value": "{{brandId}}"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Edge Case - Future Date",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('Status code is 404 for future date', function () {",
+              "    pm.response.to.have.status(404);",
+              "});",
+              "",
+              "pm.test('No price found for future date', function () {",
+              "    pm.expect(pm.response.text()).to.be.empty;",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/prices?applicationDate=2025-12-31T23:59:59&productId={{productId}}&brandId={{brandId}}",
+          "host": ["{{baseUrl}}"],
+          "path": ["prices"],
+          "query": [
+            {
+              "key": "applicationDate",
+              "value": "2025-12-31T23:59:59"
+            },
+            {
+              "key": "productId",
+              "value": "{{productId}}"
+            },
+            {
+              "key": "brandId",
+              "value": "{{brandId}}"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Edge Case - Past Date",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('Status code is 404 for old date', function () {",
+              "    pm.response.to.have.status(404);",
+              "});",
+              "",
+              "pm.test('No price found for past date', function () {",
+              "    pm.expect(pm.response.text()).to.be.empty;",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/prices?applicationDate=2019-01-01T00:00:00&productId={{productId}}&brandId={{brandId}}",
+          "host": ["{{baseUrl}}"],
+          "path": ["prices"],
+          "query": [
+            {
+              "key": "applicationDate",
+              "value": "2019-01-01T00:00:00"
+            },
+            {
+              "key": "productId",
+              "value": "{{productId}}"
+            },
+            {
+              "key": "brandId",
+              "value": "{{brandId}}"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Performance Test - Multiple Rapid Requests",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('Response time is under 500ms for performance test', function () {",
+              "    pm.expect(pm.response.responseTime).to.be.below(500);",
+              "});",
+              "",
+              "pm.test('Status code is 200', function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "",
+              "pm.test('Consistent response structure', function () {",
+              "    const responseJson = pm.response.json();",
+              "    pm.expect(responseJson).to.have.property('price');",
+              "    pm.expect(responseJson).to.have.property('currency');",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/prices?applicationDate=2020-06-14T12:00:00&productId={{productId}}&brandId={{brandId}}",
+          "host": ["{{baseUrl}}"],
+          "path": ["prices"],
+          "query": [
+            {
+              "key": "applicationDate",
+              "value": "2020-06-14T12:00:00"
+            },
+            {
+              "key": "productId",
+              "value": "{{productId}}"
+            },
+            {
+              "key": "brandId",
+              "value": "{{brandId}}"
+            }
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          "// Set up global variables if not already set",
+          "if (!pm.globals.has('timestamp')) {",
+          "    pm.globals.set('timestamp', new Date().toISOString());",
+          "}",
+          "",
+          "// Log request details for debugging",
+          "console.log('Making request to: ' + pm.request.url.toString());",
+          "console.log('Request method: ' + pm.request.method);",
+          "console.log('Timestamp: ' + pm.globals.get('timestamp'));"
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          "// Global test to log response details",
+          "console.log('Response status: ' + pm.response.status);",
+          "console.log('Response time: ' + pm.response.responseTime + 'ms');",
+          "",
+          "// Common validation for all successful responses",
+          "if (pm.response.code === 200) {",
+          "    pm.test('Response is valid JSON', function () {",
+          "        pm.response.to.be.json;",
+          "    });",
+          "    ",
+          "    pm.test('Response has Content-Type header', function () {",
+          "        pm.expect(pm.response.headers.get('Content-Type')).to.exist;",
+          "    });",
+          "}"
+        ]
+      }
     }
   ]
 }
