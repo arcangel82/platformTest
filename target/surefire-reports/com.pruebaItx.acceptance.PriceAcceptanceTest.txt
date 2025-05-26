@@ -1,0 +1,155 @@
+-------------------------------------------------------------------------------
+Test set: com.pruebaItx.acceptance.PriceAcceptanceTest
+-------------------------------------------------------------------------------
+Tests run: 15, Failures: 13, Errors: 0, Skipped: 0, Time elapsed: 1.553 s <<< FAILURE! -- in com.pruebaItx.acceptance.PriceAcceptanceTest
+com.pruebaItx.acceptance.PriceAcceptanceTest.shouldReturn400WhenApplicationDateFormatIsInvalid -- Time elapsed: 0.012 s <<< FAILURE!
+java.lang.AssertionError: Content type not set
+	at org.springframework.test.util.AssertionErrors.fail(AssertionErrors.java:39)
+	at org.springframework.test.util.AssertionErrors.assertTrue(AssertionErrors.java:73)
+	at org.springframework.test.util.AssertionErrors.assertNotNull(AssertionErrors.java:112)
+	at org.springframework.test.web.servlet.result.ContentResultMatchers.lambda$contentType$0(ContentResultMatchers.java:85)
+	at org.springframework.test.web.servlet.MockMvc$1.andExpect(MockMvc.java:214)
+	at com.pruebaItx.acceptance.PriceAcceptanceTest.shouldReturn400WhenApplicationDateFormatIsInvalid(PriceAcceptanceTest.java:220)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+
+com.pruebaItx.acceptance.PriceAcceptanceTest.shouldReturn400WhenApplicationDateIsMissing -- Time elapsed: 0.007 s <<< FAILURE!
+java.lang.AssertionError: Content type not set
+	at org.springframework.test.util.AssertionErrors.fail(AssertionErrors.java:39)
+	at org.springframework.test.util.AssertionErrors.assertTrue(AssertionErrors.java:73)
+	at org.springframework.test.util.AssertionErrors.assertNotNull(AssertionErrors.java:112)
+	at org.springframework.test.web.servlet.result.ContentResultMatchers.lambda$contentType$0(ContentResultMatchers.java:85)
+	at org.springframework.test.web.servlet.MockMvc$1.andExpect(MockMvc.java:214)
+	at com.pruebaItx.acceptance.PriceAcceptanceTest.shouldReturn400WhenApplicationDateIsMissing(PriceAcceptanceTest.java:152)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+
+com.pruebaItx.acceptance.PriceAcceptanceTest.shouldReturn400WhenBrandIdIsNotValidNumber -- Time elapsed: 0.008 s <<< FAILURE!
+java.lang.AssertionError: Content type not set
+	at org.springframework.test.util.AssertionErrors.fail(AssertionErrors.java:39)
+	at org.springframework.test.util.AssertionErrors.assertTrue(AssertionErrors.java:73)
+	at org.springframework.test.util.AssertionErrors.assertNotNull(AssertionErrors.java:112)
+	at org.springframework.test.web.servlet.result.ContentResultMatchers.lambda$contentType$0(ContentResultMatchers.java:85)
+	at org.springframework.test.web.servlet.MockMvc$1.andExpect(MockMvc.java:214)
+	at com.pruebaItx.acceptance.PriceAcceptanceTest.shouldReturn400WhenBrandIdIsNotValidNumber(PriceAcceptanceTest.java:266)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+
+com.pruebaItx.acceptance.PriceAcceptanceTest.shouldReturn400WhenBrandIdIsMissing -- Time elapsed: 0.007 s <<< FAILURE!
+java.lang.AssertionError: Content type not set
+	at org.springframework.test.util.AssertionErrors.fail(AssertionErrors.java:39)
+	at org.springframework.test.util.AssertionErrors.assertTrue(AssertionErrors.java:73)
+	at org.springframework.test.util.AssertionErrors.assertNotNull(AssertionErrors.java:112)
+	at org.springframework.test.web.servlet.result.ContentResultMatchers.lambda$contentType$0(ContentResultMatchers.java:85)
+	at org.springframework.test.web.servlet.MockMvc$1.andExpect(MockMvc.java:214)
+	at com.pruebaItx.acceptance.PriceAcceptanceTest.shouldReturn400WhenBrandIdIsMissing(PriceAcceptanceTest.java:199)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+
+com.pruebaItx.acceptance.PriceAcceptanceTest.shouldReturn400WhenProductIdIsNotValidNumber -- Time elapsed: 0.007 s <<< FAILURE!
+java.lang.AssertionError: Content type not set
+	at org.springframework.test.util.AssertionErrors.fail(AssertionErrors.java:39)
+	at org.springframework.test.util.AssertionErrors.assertTrue(AssertionErrors.java:73)
+	at org.springframework.test.util.AssertionErrors.assertNotNull(AssertionErrors.java:112)
+	at org.springframework.test.web.servlet.result.ContentResultMatchers.lambda$contentType$0(ContentResultMatchers.java:85)
+	at org.springframework.test.web.servlet.MockMvc$1.andExpect(MockMvc.java:214)
+	at com.pruebaItx.acceptance.PriceAcceptanceTest.shouldReturn400WhenProductIdIsNotValidNumber(PriceAcceptanceTest.java:243)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+
+com.pruebaItx.acceptance.PriceAcceptanceTest.shouldReturn400WhenProductIdIsMissing -- Time elapsed: 0.006 s <<< FAILURE!
+java.lang.AssertionError: Content type not set
+	at org.springframework.test.util.AssertionErrors.fail(AssertionErrors.java:39)
+	at org.springframework.test.util.AssertionErrors.assertTrue(AssertionErrors.java:73)
+	at org.springframework.test.util.AssertionErrors.assertNotNull(AssertionErrors.java:112)
+	at org.springframework.test.web.servlet.result.ContentResultMatchers.lambda$contentType$0(ContentResultMatchers.java:85)
+	at org.springframework.test.web.servlet.MockMvc$1.andExpect(MockMvc.java:214)
+	at com.pruebaItx.acceptance.PriceAcceptanceTest.shouldReturn400WhenProductIdIsMissing(PriceAcceptanceTest.java:179)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+
+com.pruebaItx.acceptance.PriceAcceptanceTest.shouldReturn404WhenNoPriceFound -- Time elapsed: 0.010 s <<< FAILURE!
+java.lang.AssertionError: Content type not set
+	at org.springframework.test.util.AssertionErrors.fail(AssertionErrors.java:39)
+	at org.springframework.test.util.AssertionErrors.assertTrue(AssertionErrors.java:73)
+	at org.springframework.test.util.AssertionErrors.assertNotNull(AssertionErrors.java:112)
+	at org.springframework.test.web.servlet.result.ContentResultMatchers.lambda$contentType$0(ContentResultMatchers.java:85)
+	at org.springframework.test.web.servlet.MockMvc$1.andExpect(MockMvc.java:214)
+	at com.pruebaItx.acceptance.PriceAcceptanceTest.shouldReturn404WhenNoPriceFound(PriceAcceptanceTest.java:289)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+
+com.pruebaItx.acceptance.PriceAcceptanceTest.shouldReturn404WhenProductExistsButNoPriceForDate -- Time elapsed: 0.010 s <<< FAILURE!
+java.lang.AssertionError: Content type not set
+	at org.springframework.test.util.AssertionErrors.fail(AssertionErrors.java:39)
+	at org.springframework.test.util.AssertionErrors.assertTrue(AssertionErrors.java:73)
+	at org.springframework.test.util.AssertionErrors.assertNotNull(AssertionErrors.java:112)
+	at org.springframework.test.web.servlet.result.ContentResultMatchers.lambda$contentType$0(ContentResultMatchers.java:85)
+	at org.springframework.test.web.servlet.MockMvc$1.andExpect(MockMvc.java:214)
+	at com.pruebaItx.acceptance.PriceAcceptanceTest.shouldReturn404WhenProductExistsButNoPriceForDate(PriceAcceptanceTest.java:313)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+
+com.pruebaItx.acceptance.PriceAcceptanceTest.shouldReturnPriceAt10AMOnDay14 -- Time elapsed: 0.015 s <<< FAILURE!
+java.lang.AssertionError: Got a list of values [2020,6,14,0,0] instead of the expected single value 2020-06-14T00:00:00
+	at org.springframework.test.util.AssertionErrors.fail(AssertionErrors.java:39)
+	at org.springframework.test.util.JsonPathExpectationsHelper.assertValue(JsonPathExpectationsHelper.java:154)
+	at org.springframework.test.web.servlet.result.JsonPathResultMatchers.lambda$value$2(JsonPathResultMatchers.java:112)
+	at org.springframework.test.web.servlet.MockMvc$1.andExpect(MockMvc.java:214)
+	at com.pruebaItx.acceptance.PriceAcceptanceTest.shouldReturnPriceAt10AMOnDay14(PriceAcceptanceTest.java:54)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+
+com.pruebaItx.acceptance.PriceAcceptanceTest.shouldReturnPriceAt4PMOnDay14 -- Time elapsed: 0.013 s <<< FAILURE!
+java.lang.AssertionError: Got a list of values [2020,6,14,15,0] instead of the expected single value 2020-06-14T15:00:00
+	at org.springframework.test.util.AssertionErrors.fail(AssertionErrors.java:39)
+	at org.springframework.test.util.JsonPathExpectationsHelper.assertValue(JsonPathExpectationsHelper.java:154)
+	at org.springframework.test.web.servlet.result.JsonPathResultMatchers.lambda$value$2(JsonPathResultMatchers.java:112)
+	at org.springframework.test.web.servlet.MockMvc$1.andExpect(MockMvc.java:214)
+	at com.pruebaItx.acceptance.PriceAcceptanceTest.shouldReturnPriceAt4PMOnDay14(PriceAcceptanceTest.java:74)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+
+com.pruebaItx.acceptance.PriceAcceptanceTest.shouldReturnPriceAt9PMOnDay14 -- Time elapsed: 0.015 s <<< FAILURE!
+java.lang.AssertionError: Got a list of values [2020,6,14,0,0] instead of the expected single value 2020-06-14T00:00:00
+	at org.springframework.test.util.AssertionErrors.fail(AssertionErrors.java:39)
+	at org.springframework.test.util.JsonPathExpectationsHelper.assertValue(JsonPathExpectationsHelper.java:154)
+	at org.springframework.test.web.servlet.result.JsonPathResultMatchers.lambda$value$2(JsonPathResultMatchers.java:112)
+	at org.springframework.test.web.servlet.MockMvc$1.andExpect(MockMvc.java:214)
+	at com.pruebaItx.acceptance.PriceAcceptanceTest.shouldReturnPriceAt9PMOnDay14(PriceAcceptanceTest.java:94)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+
+com.pruebaItx.acceptance.PriceAcceptanceTest.shouldReturnPriceAt10AMOnDay15 -- Time elapsed: 0.015 s <<< FAILURE!
+java.lang.AssertionError: Got a list of values [2020,6,15,0,0] instead of the expected single value 2020-06-15T00:00:00
+	at org.springframework.test.util.AssertionErrors.fail(AssertionErrors.java:39)
+	at org.springframework.test.util.JsonPathExpectationsHelper.assertValue(JsonPathExpectationsHelper.java:154)
+	at org.springframework.test.web.servlet.result.JsonPathResultMatchers.lambda$value$2(JsonPathResultMatchers.java:112)
+	at org.springframework.test.web.servlet.MockMvc$1.andExpect(MockMvc.java:214)
+	at com.pruebaItx.acceptance.PriceAcceptanceTest.shouldReturnPriceAt10AMOnDay15(PriceAcceptanceTest.java:114)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+
+com.pruebaItx.acceptance.PriceAcceptanceTest.shouldReturnPriceAt9PMOnDay16 -- Time elapsed: 0.015 s <<< FAILURE!
+java.lang.AssertionError: Got a list of values [2020,6,15,16,0] instead of the expected single value 2020-06-15T16:00:00
+	at org.springframework.test.util.AssertionErrors.fail(AssertionErrors.java:39)
+	at org.springframework.test.util.JsonPathExpectationsHelper.assertValue(JsonPathExpectationsHelper.java:154)
+	at org.springframework.test.web.servlet.result.JsonPathResultMatchers.lambda$value$2(JsonPathResultMatchers.java:112)
+	at org.springframework.test.web.servlet.MockMvc$1.andExpect(MockMvc.java:214)
+	at com.pruebaItx.acceptance.PriceAcceptanceTest.shouldReturnPriceAt9PMOnDay16(PriceAcceptanceTest.java:134)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+
