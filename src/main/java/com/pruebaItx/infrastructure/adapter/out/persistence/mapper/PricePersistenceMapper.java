@@ -8,11 +8,11 @@ import org.mapstruct.Mapper;
 @Mapper(componentModel = "spring")
 public interface PricePersistenceMapper {
 
-    /**
-     * Maps a JPA entity to a domain entity.
-     *
-     * @param jpaEntity the JPA entity
-     * @return the domain entity
-     */
-    Price toDomainEntity(PriceEntity jpaEntity);
+  /**
+   * Maps a JPA entity to a domain entity.
+   *
+   * @param jpaEntity the JPA entity
+   * @return the domain entity
+   */
+  Price toDomainEntity(PriceEntity jpaEntity);
 }

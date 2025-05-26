@@ -1,13 +1,13 @@
 package com.pruebaItx.domain.model;
-import lombok.Getter;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.Objects;
+import lombok.Getter;
 
 /**
- * Domain model representing a price with its validity period and priority.
- * This is the core business entity that encapsulates all price-related business rules.
+ * Domain model representing a price with its validity period and priority. This is the core
+ * business entity that encapsulates all price-related business rules.
  */
 @Getter
 public final class Price {
@@ -46,52 +46,58 @@ public final class Price {
     }
   }
 
-  /**
-   * Checks if this price is applicable for the given date.
-   */
+  /** Checks if this price is applicable for the given date. */
   public boolean isApplicableAt(LocalDateTime applicationDate) {
     return !applicationDate.isBefore(startDate) && !applicationDate.isAfter(endDate);
   }
 
-  /**
-   * Checks if this price has higher priority than another price.
-   */
+  /** Checks if this price has higher priority than another price. */
   public boolean hasHigherPriorityThan(Price other) {
     return this.priority > other.priority;
   }
 
-    @Override
+  @Override
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     Price price1 = (Price) o;
-    return Objects.equals(brandId, price1.brandId) &&
-            Objects.equals(startDate, price1.startDate) &&
-            Objects.equals(endDate, price1.endDate) &&
-            Objects.equals(priceList, price1.priceList) &&
-            Objects.equals(productId, price1.productId) &&
-            Objects.equals(priority, price1.priority) &&
-            Objects.equals(price, price1.price) &&
-            Objects.equals(currency, price1.currency);
+    return Objects.equals(brandId, price1.brandId)
+        && Objects.equals(startDate, price1.startDate)
+        && Objects.equals(endDate, price1.endDate)
+        && Objects.equals(priceList, price1.priceList)
+        && Objects.equals(productId, price1.productId)
+        && Objects.equals(priority, price1.priority)
+        && Objects.equals(price, price1.price)
+        && Objects.equals(currency, price1.currency);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(brandId, startDate, endDate, priceList, productId, priority, price, currency);
+    return Objects.hash(
+        brandId, startDate, endDate, priceList, productId, priority, price, currency);
   }
 
   @Override
   public String toString() {
-    return "Price{" +
-            "brandId=" + brandId +
-            ", startDate=" + startDate +
-            ", endDate=" + endDate +
-            ", priceList=" + priceList +
-            ", productId=" + productId +
-            ", priority=" + priority +
-            ", price=" + price +
-            ", currency='" + currency + '\'' +
-            '}';
+    return "Price{"
+        + "brandId="
+        + brandId
+        + ", startDate="
+        + startDate
+        + ", endDate="
+        + endDate
+        + ", priceList="
+        + priceList
+        + ", productId="
+        + productId
+        + ", priority="
+        + priority
+        + ", price="
+        + price
+        + ", currency='"
+        + currency
+        + '\''
+        + '}';
   }
 
   public static Builder builder() {

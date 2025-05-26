@@ -18,7 +18,7 @@ paths:
   /api/v1/prices:
     get:
       tags:
-        - prices
+        - Price
       summary: Get applicable price
       description: Returns the applicable price for a product based on application date, product ID and brand ID
       operationId: getPrice

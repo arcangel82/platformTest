@@ -1,12 +1,11 @@
 package com.pruebaItx.application.port.in;
 
 import com.pruebaItx.domain.model.Price;
-
 import java.time.LocalDateTime;
 
 /**
- * Use case for retrieving the applicable price for a product.
- * This interface defines the business operation from the application's perspective.
+ * Use case for retrieving the applicable price for a product. This interface defines the business
+ * operation from the application's perspective.
  */
 public interface GetPriceUseCase {
 

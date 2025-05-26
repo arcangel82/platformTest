@@ -1,4 +1,3 @@
 package com.pruebaItx.acceptance;
 
-public class PriceAcceptanceTest {
-}
+public class PriceAcceptanceTest {}

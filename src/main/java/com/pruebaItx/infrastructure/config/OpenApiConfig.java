@@ -1,4 +1,3 @@
 package com.pruebaItx.infrastructure.config;
 
-public class OpenApiConfig {
-}
+public class OpenApiConfig {}

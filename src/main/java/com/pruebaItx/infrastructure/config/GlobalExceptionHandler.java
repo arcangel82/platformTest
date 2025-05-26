@@ -1,4 +1,3 @@
 package com.pruebaItx.infrastructure.config;
 
-public class GlobalExceptionHandler {
-}
+public class GlobalExceptionHandler {}

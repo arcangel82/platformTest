@@ -1,13 +1,12 @@
 package com.pruebaItx.application.port.out;
 
 import com.pruebaItx.domain.model.Price;
-
 import java.time.LocalDateTime;
 import java.util.List;
 
 /**
- * Port for price repository operations.
- * This interface abstracts the persistence layer from the application layer.
+ * Port for price repository operations. This interface abstracts the persistence layer from the
+ * application layer.
  */
 public interface PriceRepositoryPort {
 

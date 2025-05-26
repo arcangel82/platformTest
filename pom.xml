@@ -222,7 +222,7 @@
                             <inputSpecRootDirectory>${project.basedir}/src/main/resources/openapi/servers
                             </inputSpecRootDirectory>
                             <generatorName>spring</generatorName>
-                            <skipOverwrite>true</skipOverwrite>
+                            <skipOverwrite>false</skipOverwrite>
                             <library>spring-boot</library>
                             <generateModelDocumentation>false</generateModelDocumentation>
                             <generateApiTests>true</generateApiTests>
@@ -231,11 +231,11 @@
                             <configOptions>
                                 <useSpringBoot3>true</useSpringBoot3>
                                 <interfaceOnly>true</interfaceOnly>
-                                <java17>true</java17>
                                 <useOptional>false</useOptional>
                                 <hideGenerationTimestamp>true</hideGenerationTimestamp>
-                                <dateLibrary>java17</dateLibrary>
-                                <useTags>false</useTags>
+
+                                <dateLibrary>java8</dateLibrary>
+                                <useTags>true</useTags>
                                 <apiPackage>com.pruebaItx.web.application.interfaces</apiPackage>
                                 <modelPackage>com.pruebaItx.web.application.entities</modelPackage>
                             </configOptions>

@@ -1,4 +1,3 @@
 package com.pruebaItx.integration;
 
-public class PriceIntegrationTest {
-}
+public class PriceIntegrationTest {}
