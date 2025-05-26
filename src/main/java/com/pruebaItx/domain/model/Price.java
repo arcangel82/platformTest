@@ -1,4 +1,6 @@
 package com.pruebaItx.domain.model;
+import lombok.Getter;
+
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.Objects;
@@ -7,6 +9,7 @@ import java.util.Objects;
  * Domain model representing a price with its validity period and priority.
  * This is the core business entity that encapsulates all price-related business rules.
  */
+@Getter
 public final class Price {
 
   private final Long brandId;
@@ -57,17 +60,7 @@ public final class Price {
     return this.priority > other.priority;
   }
 
-  // Getters
-  public Long getBrandId() { return brandId; }
-  public LocalDateTime getStartDate() { return startDate; }
-  public LocalDateTime getEndDate() { return endDate; }
-  public Integer getPriceList() { return priceList; }
-  public Long getProductId() { return productId; }
-  public Integer getPriority() { return priority; }
-  public BigDecimal getPrice() { return price; }
-  public String getCurrency() { return currency; }
-
-  @Override
+    @Override
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;

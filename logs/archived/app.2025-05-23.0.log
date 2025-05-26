@@ -1,0 +1,28 @@
+2025-05-23 12:55:56,666 [main] INFO  c.p.a.service.ProductService - Requested the products, factors: saleFactor: 1 stockFactor: 2
+2025-05-23 12:55:59,422 [main] INFO  c.p.i.a.i.w.ProductControllerIntegrationTest - Starting ProductControllerIntegrationTest using Java 21.0.7 with PID 128172 (started by angelperez in /home/angelperez/Desarrollo/apps/TestProjects/ITX_Comercial_CasoPractico)
+2025-05-23 12:55:59,424 [main] DEBUG c.p.i.a.i.w.ProductControllerIntegrationTest - Running with Spring Boot v3.4.1, Spring v6.2.1
+2025-05-23 12:55:59,426 [main] INFO  c.p.i.a.i.w.ProductControllerIntegrationTest - No active profile set, falling back to 1 default profile: "default"
+2025-05-23 12:56:08,194 [main] INFO  c.p.i.a.i.w.ProductControllerIntegrationTest - Started ProductControllerIntegrationTest in 9.606 seconds (process running for 15.105)
+2025-05-23 12:56:08,197 [main] INFO  com.pruebaItx.PruebaItxApplication - Application started and ready to receive requests
+2025-05-23 12:56:08,589 [http-nio-auto-1-exec-1] DEBUG c.p.i.a.in.web.ProductController - Request to Products Sorted with headers: saleFactor=0, stockFactor=0
+2025-05-23 12:56:08,596 [http-nio-auto-1-exec-1] INFO  c.p.a.service.ProductService - Requested the products, factors: saleFactor: 0 stockFactor: 0
+2025-05-23 12:56:08,935 [http-nio-auto-1-exec-2] DEBUG c.p.i.a.in.web.ProductController - Request to Products Sorted with headers: saleFactor=0, stockFactor=1
+2025-05-23 12:56:08,936 [http-nio-auto-1-exec-2] INFO  c.p.a.service.ProductService - Requested the products, factors: saleFactor: 0 stockFactor: 1
+2025-05-23 12:56:08,947 [http-nio-auto-1-exec-3] DEBUG c.p.i.a.in.web.ProductController - Request to Products Sorted with headers: saleFactor=0, stockFactor=0
+2025-05-23 12:56:08,947 [http-nio-auto-1-exec-3] INFO  c.p.a.service.ProductService - Requested the products, factors: saleFactor: 0 stockFactor: 0
+2025-05-23 12:56:08,966 [http-nio-auto-1-exec-4] DEBUG c.p.i.a.in.web.ProductController - Request to Products Sorted with headers: saleFactor=0, stockFactor=0
+2025-05-23 12:56:08,966 [http-nio-auto-1-exec-4] INFO  c.p.a.service.ProductService - Requested the products, factors: saleFactor: 0 stockFactor: 0
+2025-05-23 12:56:08,974 [http-nio-auto-1-exec-5] DEBUG c.p.i.a.in.web.ProductController - Request to Products Sorted with headers: saleFactor=1, stockFactor=0
+2025-05-23 12:56:08,974 [http-nio-auto-1-exec-5] INFO  c.p.a.service.ProductService - Requested the products, factors: saleFactor: 1 stockFactor: 0
+2025-05-23 12:56:08,984 [http-nio-auto-1-exec-6] DEBUG c.p.i.a.in.web.ProductController - Request to Products Sorted with headers: saleFactor=0, stockFactor=0
+2025-05-23 12:56:08,984 [http-nio-auto-1-exec-6] INFO  c.p.a.service.ProductService - Requested the products, factors: saleFactor: 0 stockFactor: 0
+2025-05-23 12:56:09,081 [main] DEBUG c.p.i.a.in.web.ProductController - Request to Products Sorted with headers: saleFactor=-1, stockFactor=-2
+2025-05-23 12:56:09,084 [main] DEBUG c.p.i.a.in.web.ProductController - Request to Products Sorted with headers: saleFactor=1, stockFactor=2
+2025-05-23 12:56:09,087 [main] DEBUG c.p.i.a.in.web.ProductController - Request to Products Sorted with headers: saleFactor=1, stockFactor=1
+2025-05-23 12:56:09,090 [main] DEBUG c.p.i.a.in.web.ProductController - Request to Products Sorted with headers: saleFactor=0, stockFactor=0
+2025-05-23 12:56:09,094 [main] DEBUG c.p.i.a.in.web.ProductController - Request to Products Sorted with criteria in body: class SortingCriteriaRequest {
+    criteria: [class CriteriaWeight {
+        id: salesUnits
+        weight: 1
+    }]
+}
