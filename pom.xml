@@ -9,11 +9,11 @@
         <version>3.4.1</version>
         <relativePath/>
     </parent>
-    <groupId>com.pruebaITXComercial</groupId>
-    <artifactId>pruebaITXComercial</artifactId>
+    <groupId>com.pruebaITXPlataforma</groupId>
+    <artifactId>pruebaITXPlataforma</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>pruebaITXComercial</name>
-    <description>Prueba Inditex Comercial</description>
+    <name>pruebaITXPlataforma</name>
+    <description>Prueba Inditex Plataforma</description>
 
     <properties>
         <!-- Java -->
@@ -136,6 +136,8 @@
                 </executions>
                 <configuration>
                     <excludes>
+                        <exclude>**/*IntegrationTest.java</exclude>
+                        <exclude>**/*AcceptanceTest.java</exclude>
                         <exclude>**/mapper/*MapperImpl.class</exclude>
                         <exclude>**/mapper/*Mapper.class</exclude>
                         <exclude>**/config/*.class</exclude>
@@ -189,11 +191,9 @@
                         <param>**.mapper.*Mapper</param>
                         <param>**.config.*</param>
                         <param>**.web.application.*</param>
-                        <param>**.infrastructure.adapter.in.web.ProductControllerIntegrationTest</param>
                     </excludedClasses>
                     <mutationThreshold>${pitest.mutationThreshold}</mutationThreshold>
                     <excludedTestClasses>
-                        <param>com.pruebaItx.infrastructure.adapter.in.web.ProductControllerIntegrationTest</param>
                     </excludedTestClasses>
                 </configuration>
             </plugin>

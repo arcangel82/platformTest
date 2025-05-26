@@ -1,4 +1,3 @@
 package com.pruebaItx;
 
-public class ControllerTests {
-}
+public class ControllerTests {}

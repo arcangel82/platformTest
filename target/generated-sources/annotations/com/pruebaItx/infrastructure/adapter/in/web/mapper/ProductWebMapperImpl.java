@@ -1,7 +1,6 @@
 package com.pruebaItx.infrastructure.adapter.in.web.mapper;
 
 import com.pruebaItx.domain.model.Product;
-import com.pruebaItx.domain.model.Stock;
 import com.pruebaItx.web.application.entities.Article;
 import com.pruebaItx.web.application.entities.ArticleStock;
 import javax.annotation.processing.Generated;
@@ -9,8 +8,8 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2025-05-23T12:55:50+0200",
-    comments = "version: 1.6.3, compiler: javac, environment: Java 21.0.7 (Amazon.com Inc.)"
+    date = "2025-05-26T09:58:23+0200",
+    comments = "version: 1.6.3, compiler: javac, environment: Java 17.0.15 (Amazon.com Inc.)"
 )
 @Component
 public class ProductWebMapperImpl implements ProductWebMapper {

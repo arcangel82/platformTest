@@ -14,14 +14,14 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 @EnableWebMvc
 public class PruebaItxApplication {
 
-    private static final Logger logger = LoggerFactory.getLogger(PruebaItxApplication.class);
+  private static final Logger logger = LoggerFactory.getLogger(PruebaItxApplication.class);
 
-    public static void main(String[] args) {
-        SpringApplication.run(PruebaItxApplication.class, args);
-    }
+  public static void main(String[] args) {
+    SpringApplication.run(PruebaItxApplication.class, args);
+  }
 
-    @EventListener(ApplicationReadyEvent.class)
-    public void logApplicationStartup() {
-        logger.info("Application started and ready to receive requests");
-    }
+  @EventListener(ApplicationReadyEvent.class)
+  public void logApplicationStartup() {
+    logger.info("Application started and ready to receive requests");
+  }
 }

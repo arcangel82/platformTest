@@ -1,12 +1,5 @@
-INSERT INTO PRODUCT (product_id, product_name, sales_unit, size_S_stock, size_M_stock, size_L_stock)
-VALUES (1, 'V-NECH BASIC SHIRT', 100, 4, 9, 0);
-INSERT INTO PRODUCT (product_id, product_name, sales_unit, size_S_stock, size_M_stock, size_L_stock)
-VALUES (2, 'CONTRASTING FABRIC T-SHIRT', 50, 35, 9, 9);
-INSERT INTO PRODUCT (product_id, product_name, sales_unit, size_S_stock, size_M_stock, size_L_stock)
-VALUES (3, 'RAISED PRINT T-SHIRT', 80, 20, 2, 20);
-INSERT INTO PRODUCT (product_id, product_name, sales_unit, size_S_stock, size_M_stock, size_L_stock)
-VALUES (4, 'PLEATED T-SHIRT', 3, 25, 30, 10);
-INSERT INTO PRODUCT (product_id, product_name, sales_unit, size_S_stock, size_M_stock, size_L_stock)
-VALUES (5, 'CONTRASTING LACE T-SHIRT', 650, 0, 1, 0);
-INSERT INTO PRODUCT (product_id, product_name, sales_unit, size_S_stock, size_M_stock, size_L_stock)
-VALUES (6, 'SLOGAN T-SHIRT', 20, 9, 2, 5);
+INSERT INTO PRICES (BRAND_ID, START_DATE, END_DATE, PRICE_LIST, PRODUCT_ID, PRIORITY, PRICE, CURR)
+VALUES (1, '2020-06-14 00:00:00', '2020-12-31 23:59:59', 1, 35455, 0, 35.50, 'EUR'),
+       (1, '2020-06-14 15:00:00', '2020-06-14 18:30:00', 2, 35455, 1, 25.45, 'EUR'),
+       (1, '2020-06-15 00:00:00', '2020-06-15 11:00:00', 3, 35455, 1, 30.50, 'EUR'),
+       (1, '2020-06-15 16:00:00', '2020-12-31 23:59:59', 4, 35455, 1, 38.95, 'EUR');

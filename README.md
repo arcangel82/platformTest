@@ -1,4 +1,4 @@
-# ITX Comercial API
+# ITX Platform API
 
 This project is a Spring Boot application that provides an API for retrieving products sorted by a weighted combination
 of sales and stock criteria.

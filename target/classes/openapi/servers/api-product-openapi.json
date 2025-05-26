@@ -1,8 +1,8 @@
 {
   "openapi": "3.0.3",
   "info": {
-    "title": "API ITX Comercial",
-    "description": "API Inditex. Comercial.",
+    "title": "API ITX Platform",
+    "description": "API Inditex. Platform.",
     "contact": {
       "name": "API Support",
       "url": "http://example.com/support",
@@ -292,7 +292,10 @@
             "example": 12345
           }
         },
-        "required": ["id", "weight"]
+        "required": [
+          "id",
+          "weight"
+        ]
       },
       "SortingCriteriaRequest": {
         "description": "Request with sorting criteria",
@@ -305,7 +308,9 @@
             }
           }
         },
-        "required": ["criteria"]
+        "required": [
+          "criteria"
+        ]
       },
       "Criterion": {
         "description": "Sorting Criterion",

@@ -9,15 +9,15 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class SwaggerConfig {
 
-    @Bean
-    public OpenAPI customOpenAPI() {
-        return new OpenAPI()
-                .info(
-                        new Info()
-                                .title("Product API")
-                                .version("1.0")
-                                .description("API for managing products")
-                                .contact(
-                                        new Contact().name("Angel Perez").email("angelperez@paradigmadigital.com")));
-    }
+  @Bean
+  public OpenAPI customOpenAPI() {
+    return new OpenAPI()
+        .info(
+            new Info()
+                .title("Prices API")
+                .version("1.0")
+                .description("API for managing prices")
+                .contact(
+                    new Contact().name("Angel Perez").email("angelperez@paradigmadigital.com")));
+  }
 }
